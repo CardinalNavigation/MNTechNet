@@ -20,6 +20,11 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Dashboard from '../Dashboard/Dashboard';
+import CreateEvent from '../CreateEvent/CreateEvent';
+import EventList from '../EventList/EventList';
+import AddPeople from '../AddPeople/AddPeople';
+import People from '../People/People';
+import Profile from '../Profile/Profile';
 
 import './App.css';
 
