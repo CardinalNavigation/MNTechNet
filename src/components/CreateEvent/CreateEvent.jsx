@@ -22,19 +22,19 @@ function CreateEvent() {
         //event.preventDefault prevents the page from automatically refreshing and deleting our input data
         event.preventDefault()
         //eventReducerInput is our package which we are sending to the server
-        let eventReducerInput= {
+        let eventReducerInput = {
             eventName: eventName,
             date: date,
             time: time,
             address: address,
             notes: notes,
-            event_complete: false
+            // event_complete: false
         }
 
         console.log(eventReducerInput)
 
         dispatch({
-            type: 'SET_EVENT_DATA',
+            type: 'SET_EVENT_POST',
             payload: eventReducerInput
         });
 
@@ -43,8 +43,8 @@ function CreateEvent() {
         setTime('')
         setAddress('')
         setNotes('')
-        
-        history.push('/eventList')
+
+        // history.push('/eventList')
     }
 
     return (
