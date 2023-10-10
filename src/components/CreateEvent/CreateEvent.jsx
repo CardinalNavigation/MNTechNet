@@ -1,17 +1,50 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom"
 
 function CreateEvent() {
-
+    // Below useState relates to the Create Event Form Which Captures User Input
+    // User input is packaged together into eventReducerInput, to be sent to our Reducer and Redux Saga
+    // So that the information can be displayed on the DOM
     const [eventName, setEventName] = useState('');
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
     const [address, setAddress] = useState('');
     const [notes, setNotes] = useState('');
 
-    const handleSubmit = () => {
-        event.preventDefault()
+    // Use Dispatch and History to send to the redux saga, which sends to server and ultimately our
+    // SQL database
+    const dispatch = useDispatch();
+    const history = useHistory();
 
+    const handleSubmit = () => {
+        //event.preventDefault prevents the page from automatically refreshing and deleting our input data
+        event.preventDefault()
+        //eventReducerInput is our package which we are sending to the server
+        let eventReducerInput= {
+            eventName: eventName,
+            date: date,
+            time: time,
+            address: address,
+            notes: notes,
+            event_complete: false
+        }
+
+        console.log(eventReducerInput)
+
+        dispatch({
+            type: 'SET_EVENT_DATA',
+            payload: eventReducerInput
+        });
+
+        setEventName('')
+        setDate('')
+        setTime('')
+        setAddress('')
+        setNotes('')
+        
+        history.push('/eventList')
     }
 
     return (
