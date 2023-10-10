@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import Dashboard from '../Dashboard/Dashboard';
 
 import './App.css';
 
@@ -37,7 +38,7 @@ function App() {
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/home" />
+          <Redirect exact from="/" to="/login" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
@@ -109,11 +110,17 @@ function App() {
               <LandingPage />
             }
           </Route>
-
+          <Route 
+           exact
+           path="/dashboard"
+           >
+            <Dashboard/>
+          </Route>
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>
           </Route>
+         
         </Switch>
         <Footer />
       </div>
