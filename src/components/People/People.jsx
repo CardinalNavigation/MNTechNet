@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+import PeopleButtons from "../PeopleButtons/PeopleButtons";
 
 function People (){
     
@@ -19,6 +20,7 @@ function People (){
                 <h2>People</h2>
                 <table>
                     <thead>
+                        <tr>
                         <th>Person</th>
                         <th>Date</th>
                         <th>Company</th>
@@ -27,6 +29,7 @@ function People (){
                         <th>Follow-Up Date</th>
                         <th>Edit</th>
                         <th>Delete</th>
+                        </tr>
                     </thead>
                     <tbody>
                 {peopleReducer.map((person) => (
@@ -37,8 +40,7 @@ function People (){
                         <td>{person.phone}</td>
                         <td>{person.notes}</td>
                         <td>{person.follow_up_date}</td>
-                        <td><button>✏️</button></td>
-                        <td><button>❌</button></td>
+                       <PeopleButtons person={person}/>
                     </tr>
                 ))
                 }

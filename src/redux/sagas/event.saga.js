@@ -23,8 +23,8 @@ function* fetchEvents(action) {
 
 function* deleteEvent(action) {
     try {
-      const deleteFavorite = yield axios.delete(`/api/events/${action.payload.id}`);
-      console.log(deleteFavorite)
+      const deleteEvent = yield axios.delete(`/api/events/${action.payload.id}`);
+    //   console.log(deleteEvent)
       yield put({ type: 'FETCH_EVENT_DATA'});
     } catch (error) {
       console.log("error DELETING images", error);
