@@ -3,7 +3,19 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  const sqlText = `SELECT * FROM events ORDER BY "id" ASC`;
+  /* We are breaking apart our GET call to the Database 
+  so that the date comes formatted in Month Date and Year, 
+  otherwise this will pull with a weird time-stamp. */
+  const sqlText =
+    `SELECT 
+    "id", 
+    "event_name",
+    TO_CHAR("date", 'MM-DD-YYYY') AS formatted_date,
+    "time",
+    "address",
+    "notes",
+    "event_complete"
+    FROM events ORDER BY "id" ASC`;
   console.log("Get text", sqlText);
   pool
     .query(sqlText)

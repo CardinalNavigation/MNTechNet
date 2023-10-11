@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom"
 
+import './CreateEvent.css'
+
 function CreateEvent() {
     // Below useState relates to the Create Event Form Which Captures User Input
     // User input is packaged together into eventReducerInput, to be sent to our Reducer and Redux Saga
@@ -44,11 +46,11 @@ function CreateEvent() {
         setAddress('')
         setNotes('')
 
-        // history.push('/eventList')
+        history.push('/eventList')
     }
 
     return (
-        <section>
+        <div>
             <div>
                 <h2>Create Event</h2>
             </div>
@@ -61,9 +63,9 @@ function CreateEvent() {
                     <input value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></input>
                     <button type='submit'>Submit</button>
                 </form>
-                <button>Nevermind</button>
+                <button type='nevermind'>Nevermind</button>
             </div>
-        </section>
+        </div>
     )
 }
 
