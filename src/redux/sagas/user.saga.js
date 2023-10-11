@@ -24,8 +24,19 @@ function* fetchUser() {
   }
 }
 
+function* updateUser(action) {
+  try {
+    const updateUserData = yield axios.put(`/api/user/${action.payload.id}`, action.payload);
+    console.log(updateUserData)
+    yield put({ type: 'SET_CATEGORY', payload: updateUserData});
+  } catch (error) {
+    console.log("error updating user", error);
+  }
+}
+
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
+  yield takeLatest('UPDATE_USER_INFO', updateUser);
 }
 
 export default userSaga;

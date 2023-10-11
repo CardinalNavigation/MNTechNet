@@ -20,7 +20,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 router.post('/register', (req, res, next) => {
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
-  const EMail=req.body.EMail;
+  const EMail = req.body.EMail;
 
   const queryText = `INSERT INTO "user" (username, password, e_mail)
     VALUES ($1, $2, $3) RETURNING id`;
@@ -46,6 +46,32 @@ router.post('/logout', (req, res) => {
   // Use passport's built-in method to log out the user
   req.logout();
   res.sendStatus(200);
+});
+
+//This Route Updates the User Information by ID
+router.put('/:userID', rejectUnauthenticated, (req, res) => {
+  console.log("Req.Body looks like", req.body)
+  let idToUpdate = req.body.userID;
+  let username = req.body.username;
+  let password = encryptLib.encryptPassword(req.body.password);
+  let email = req.body.email;
+  console.log("My Data:", idToUpdate, username, password, email)
+  let sqlText = `UPDATE "user" 
+  SET "username" = $1, 
+  "password"= $2, 
+  "e_mail"=$3 
+  WHERE "id" = $4;`;
+  console.log("sqlText:", sqlText)
+  pool
+    .query(sqlText, [username, password, email, idToUpdate])
+    .then((result) => {
+      console.log("Update in database", idToUpdate);
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(`Error making database query ${sqlText}`, error);
+      res.sendStatus(500);
+    });
 });
 
 module.exports = router;
