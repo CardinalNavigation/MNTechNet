@@ -5,7 +5,7 @@ function* postPerson(action) {
     console.log('this is our people POST:', action.payload);
     try {
         yield axios.post('/api/people', action.payload);
-        yield put({ type: 'FETCH_EVENT_DATA' })
+        yield put({ type: 'FETCH_PERSON_DATA' })
     } catch (error) {
         console.log('Error with People Post:', error);
     }

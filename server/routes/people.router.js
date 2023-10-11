@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     "company",
     "phone",
     "notes",
-    "follow_up_date"
+    TO_CHAR("date", 'MM-DD-YYYY') AS follow_up_date
     FROM people ORDER BY "id" ASC`;
   console.log("Get text", sqlText);
   pool
