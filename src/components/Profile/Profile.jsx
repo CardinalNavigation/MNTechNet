@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 function Profile() {
 
     const user = useSelector((store) => store.user)
-    let userID=user.id
+    let userID = user.id
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
@@ -19,9 +19,9 @@ function Profile() {
     const handleSubmit = () => {
         event.preventDefault()
 
-        if (password === passwordConfirm){
-            setPassword(password)
-        } else{
+        if ((password === passwordConfirm) && password != '') {
+             setPassword(password)
+        } else {
             alert("Passwords Do Not Match")
         }
 
@@ -37,20 +37,28 @@ function Profile() {
             type: 'UPDATE_USER_INFO',
             payload: profileUpdateData
         });
+        console.log('User Data Updated')
+        history.push('/dashboard')
+    }
+
+    const nevermindButton = () => {
+        console.log("User Said Nevermind")
+        history.push('/dashboard')
     }
 
     return (
         <>
             <h2>Edit Profile</h2>
-            <form onSubmit={handleSubmit}>
-                <input value={username} placeholder="Username" type="text" onChange={(event) => setUsername(event.target.value)}></input>
-                <input value={email} placeholder="E-mail Address" type="text" onChange={(event) => setEmail(event.target.value)}></input>
-                <input value={password} placeholder="Password" type="text" onChange={(event) => setPassword(event.target.value)}></input>
-                <input value={passwordConfirm} placeholder="Confirm Password" type="text" onChange={(event) => setPasswordConfirm(event.target.value)}></input>
-                <button type="nevermind">Nevermind</button>
-                <button type="submit">Save</button>
-            </form>
-
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <input value={username} placeholder="Username" type="text" onChange={(event) => setUsername(event.target.value)}></input>
+                    <input value={email} placeholder="E-mail Address" type="text" onChange={(event) => setEmail(event.target.value)}></input>
+                    <input value={password} placeholder="Password" type="text" onChange={(event) => setPassword(event.target.value)}></input>
+                    <input value={passwordConfirm} placeholder="Confirm Password" type="text" onChange={(event) => setPasswordConfirm(event.target.value)}></input>
+                    <button type="submit">Save</button>
+                </form>
+                <button type="nevermind" onClick={nevermindButton}>Nevermind</button>
+            </div>
 
         </>
     )
