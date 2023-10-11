@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 import "./EventList.css"
+import EventListButtons from "../EventListButtons/EventListButtons";
 function EventList() {
 
     const eventReducer = useSelector((store) => store.eventReducer.eventReducer);
@@ -25,6 +26,8 @@ function EventList() {
                         <th>Time</th>
                         <th>Address</th>
                         <th>Notes</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </thead>
                     <tbody>
                 {eventReducer.map((event) => (
@@ -34,6 +37,7 @@ function EventList() {
                         <td>{event.time}</td>
                         <td>{event.address}</td>
                         <td>{event.notes}</td>
+                        <EventListButtons event={event}/>
                     </tr>
                 ))
                 }

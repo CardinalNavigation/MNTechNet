@@ -2,6 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+//GET Route
 router.get('/', (req, res) => {
   /* We are breaking apart our GET call to the Database 
   so that the date comes formatted in Month Date and Year, 
@@ -15,7 +16,7 @@ router.get('/', (req, res) => {
     "address",
     "notes",
     "event_complete"
-    FROM events ORDER BY "id" ASC`;
+    FROM events ORDER BY "date" ASC`;
   // console.log("Get text", sqlText);
   pool
     .query(sqlText)
@@ -28,9 +29,8 @@ router.get('/', (req, res) => {
       res.sendStatus(500);
     });
 });
-/**
- * POST route template
- */
+
+//POST Route
 router.post('/', (req, res) => {
   if (req.isAuthenticated()) {
     let newEventData = req.body
@@ -45,6 +45,24 @@ router.post('/', (req, res) => {
       })
       .catch((err) => console.log(err));
   }
+});
+
+router.delete('/:id', (req, res) => {
+  let idToDelete = req.params.id;
+  console.log("idToDelete", idToDelete);
+  let sqlText = `
+        DELETE FROM events WHERE "id" = $1;
+        `;
+  pool
+    .query(sqlText, [idToDelete])
+    .then((result) => {
+      console.log("Deleted from database ", idToDelete);
+      res.sendStatus(202);
+    })
+    .catch((error) => {
+      console.log(`Error making database query ${sqlText}`, error);
+      res.sendStatus(500);
+    });
 });
 
 module.exports = router;

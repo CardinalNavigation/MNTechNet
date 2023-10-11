@@ -35,6 +35,7 @@ function RegisterForm() {
     <form className="formPanel" onSubmit={registerUser}>
       <h2>Welcome to MNTechNet!</h2>
       <h4>Register Below, and happy networking!</h4>
+      
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
           {errors.registrationMessage}

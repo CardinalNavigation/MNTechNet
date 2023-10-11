@@ -25,6 +25,8 @@ function People (){
                         <th>Phone</th>
                         <th>Notes</th>
                         <th>Follow-Up Date</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </thead>
                     <tbody>
                 {peopleReducer.map((person) => (
@@ -35,6 +37,8 @@ function People (){
                         <td>{person.phone}</td>
                         <td>{person.notes}</td>
                         <td>{person.follow_up_date}</td>
+                        <td><button>✏️</button></td>
+                        <td><button>❌</button></td>
                     </tr>
                 ))
                 }
