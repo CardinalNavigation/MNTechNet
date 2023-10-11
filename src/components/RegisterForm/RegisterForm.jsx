@@ -78,7 +78,7 @@ function RegisterForm() {
         <input className="btn" type="submit" name="submit" value="Register" />
       </div>
       <div>
-      <button type="nevermind" onClick={nevermindButton}>Nevermind</button>
+      <button className="btn" type="nevermind" onClick={nevermindButton}>Nevermind</button>
       </div>
     </form>
   );
