@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+
 
 function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -7,6 +9,7 @@ function RegisterForm() {
   const [EMail, setEMail] = useState('');
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const registerUser = (event) => {
     event.preventDefault();
@@ -20,6 +23,12 @@ function RegisterForm() {
       },
     });
   }; // end registerUser
+
+  //This will bring our user back to our landing page to login or register
+  const nevermindButton=()=>{
+      console.log("User Said Nevermind")
+      history.push('/dashboard')
+  }
 
   return (
     <form className="formPanel" onSubmit={registerUser}>
@@ -67,6 +76,9 @@ function RegisterForm() {
       </div>
       <div>
         <input className="btn" type="submit" name="submit" value="Register" />
+      </div>
+      <div>
+      <button type="nevermind" onClick={nevermindButton}>Nevermind</button>
       </div>
     </form>
   );
