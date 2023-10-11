@@ -10,22 +10,18 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
-import UserPage from '../UserPage/UserPage';
-import LandingPage from '../LandingPage/LandingPage';
-import LoginPage from '../LoginPage/LoginPage';
-import RegisterPage from '../RegisterPage/RegisterPage';
+import RegisterForm from '../RegisterForm/RegisterForm';
 import Dashboard from '../Dashboard/Dashboard';
 import CreateEvent from '../CreateEvent/CreateEvent';
 import EventList from '../EventList/EventList';
 import AddPeople from '../AddPeople/AddPeople';
 import People from '../People/People';
 import Profile from '../Profile/Profile';
+import LoginForm from '../LoginForm/LoginForm';
 
 import './App.css';
-import LoginForm from '../LoginForm/LoginForm';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -44,22 +40,13 @@ function App() {
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/login" />
 
-          {/* Visiting localhost:3000/about will show the about page.
-          <Route
-            // shows AboutPage at all times (logged in or not)
-            exact
-            path="/about"
-          >
-            <AboutPage />
-          </Route> */}
-
           {/* For protected routes, the view could show one of several things on the same route.
-            Visiting localhost:3000/user will show the UserPage if the user is logged in.
-            If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
+            Visiting localhost:3000/user will show the Dashboard if the user is logged in.
+            If the user is not logged in, the ProtectedRoute will show the LoginForm (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-       
 
-       {/*logged in shows Protected Routes else shows LoginPage */}
+
+          {/*logged in shows Protected Routes else shows LoginForm */}
           <ProtectedRoute
             exact
             path="/dashboard"
@@ -113,7 +100,7 @@ function App() {
               <Redirect to="/dashboard" />
               :
               // Otherwise, show the login page
-              <LoginPage />
+              <LoginForm />
             }
           </Route>
 
@@ -121,28 +108,7 @@ function App() {
             exact
             path="/registration"
           >
-            {user.id ?
-              // If the user is already logged in, 
-              // redirect them to the /user page
-              <Redirect to="/dashboard" />
-              :
-              // Otherwise, show the registration page
-              <RegisterPage />
-            }
-          </Route>
-
-          <Route
-            exact
-            path="/home"
-          >
-            {user.id ?
-              // If the user is already logged in, 
-              // redirect them to the /user page
-              <Redirect to="/dashboard" />
-              :
-              // Otherwise, show the Landing page
-              <LoginForm />
-            }
+            <RegisterForm />
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}

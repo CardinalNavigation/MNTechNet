@@ -22,6 +22,7 @@ function RegisterForm() {
         EMail: EMail,
       },
     });
+    history.push('/dashboard')
   }; // end registerUser
 
   //This will bring our user back to our landing page to login or register
@@ -32,7 +33,8 @@ function RegisterForm() {
 
   return (
     <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
+      <h2>Welcome to MNTechNet!</h2>
+      <h4>Register Below, and happy networking!</h4>
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
           {errors.registrationMessage}
