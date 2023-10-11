@@ -5,12 +5,12 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function AddPeople() {
 
-    const [name, setName] = useState('Matthew');
-    const [date, setDate] = useState('10/10/23');
-    const [company, setCompany] = useState('PrimeDigital Academy');
-    const [phone, setPhone] = useState('111-111-1111');
-    const [notes, setNotes] = useState('This is the guy who stood on his head while saying the alphabet backwards');
-    const [followUpDate, setFollowUpDate] = useState('10/22/23');
+    const [name, setName] = useState('');
+    const [date, setDate] = useState('');
+    const [company, setCompany] = useState('');
+    const [phone, setPhone] = useState('');
+    const [notes, setNotes] = useState('');
+    const [followUpDate, setFollowUpDate] = useState('');
 
     // Use Dispatch and History to send to the redux saga, which sends to server and ultimately our
     // SQL database
@@ -38,14 +38,14 @@ function AddPeople() {
             payload: peopleReducerInput
         });
 
-        // setName('')
-        // setDate('')
-        // setCompany('')
-        // setPhone('')
-        // setNotes('')
-        // setFollowUpDate('')
+        setName('')
+        setDate('')
+        setCompany('')
+        setPhone('')
+        setNotes('')
+        setFollowUpDate('')
 
-        // history.push('/people')
+        history.push('/people')
     }
 
     return (
@@ -55,12 +55,12 @@ function AddPeople() {
             </div>
             <div>
                 <form onSubmit={handleSubmit}>
-                    <input value={name} placeholder="Person's Name" type="text" onChange={(event) => setName(event.target.value)}></input>
-                    <input value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></input>
+                    <input required value={name} placeholder="Person's Name" type="text" onChange={(event) => setName(event.target.value)}></input>
+                    <input required value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></input>
                     <input value={company} placeholder="Company" type="text" onChange={(event) => setCompany(event.target.value)}></input>
                     <input value={phone} placeholder="Phone" type="text" onChange={(event) => setPhone(event.target.value)}></input>
-                    <input value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></input>
-                    <input value={followUpDate} placeholder="Follow-up Date" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></input>
+                    <input required value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></input>
+                    <input required value={followUpDate} placeholder="Follow-up Date" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></input>
                     <button type='submit'>Submit</button>
                 </form>
                 <button type='nevermind'>Nevermind</button>

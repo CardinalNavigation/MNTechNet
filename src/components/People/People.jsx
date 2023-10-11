@@ -3,14 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 function People (){
-
+    
     const peopleReducer = useSelector((store) => store.peopleReducer.peopleReducer);
     console.log("People Reducer Looks Like:", peopleReducer)
     const dispatch = useDispatch();
 
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_PEOPLE_ITEMS' });
+        dispatch({ type: 'FETCH_PERSON_DATA' });
     }, []);
 
     return (

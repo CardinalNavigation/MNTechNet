@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     "notes",
     "event_complete"
     FROM events ORDER BY "id" ASC`;
-  console.log("Get text", sqlText);
+  // console.log("Get text", sqlText);
   pool
     .query(sqlText)
     .then((result) => {

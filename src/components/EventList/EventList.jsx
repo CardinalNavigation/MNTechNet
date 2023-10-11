@@ -11,7 +11,7 @@ function EventList() {
 
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_SHELF_ITEMS' });
+        dispatch({ type: 'FETCH_EVENT_DATA' });
     }, []);
 
     return (
