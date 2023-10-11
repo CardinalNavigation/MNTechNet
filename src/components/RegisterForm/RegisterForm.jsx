@@ -27,7 +27,7 @@ function RegisterForm() {
   //This will bring our user back to our landing page to login or register
   const nevermindButton=()=>{
       console.log("User Said Nevermind")
-      history.push('/dashboard')
+      history.push('/login')
   }
 
   return (

@@ -59,9 +59,9 @@ function LoginForm() {
       <div>
         <input className="btn" type="submit" name="submit" value="Log In" />
       </div>
-      {/* <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
-      </div> */}
+      <div>
+        <input className="btn" type="register" name="register" value="Register" />
+      </div>
     </form>
   );
 }
