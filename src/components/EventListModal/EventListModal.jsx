@@ -1,27 +1,27 @@
 import React from "react";
 import { useState } from "react";
-export default function EventListModal() {
+
+export default function EventListModal({ onClose }) {
 
     const [modal, setModal] = useState(false)
 
     const toggleModal = () => {
+        console.log(modal)
         setModal(!modal)
     }
 
     return (
         <>
-            <button className="btn-modal">
-                Edit
-            </button>
+
             <div className="modal">
-                <div onClick={toggleModal} className="overlay"
-                >
-                    <div className="modal-content"></div>
+                <div onClick={ onClose } className="overlay">
+                    <div className="modal-content">
+                        <h1>Wow you did it Matt!</h1>
+                    </div>
                 </div>
-                <h1>Wow you did it Matt!</h1>
-                <p>Hello</p>
+                <button onClick={ onClose } className="close-modal" >Save</button>
             </div>
-            <button onClick={toggleModal} className="close-modal" >Save</button>
+
         </>
     )
 
