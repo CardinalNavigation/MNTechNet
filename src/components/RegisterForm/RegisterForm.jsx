@@ -22,7 +22,7 @@ function RegisterForm() {
         EMail: EMail,
       },
     });
-    history.push('/dashboard')
+    history.push('/registrationSuccess')
   }; // end registerUser
 
   //This will bring our user back to our landing page to login or register

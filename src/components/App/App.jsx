@@ -19,8 +19,9 @@ import AddPeople from '../AddPeople/AddPeople';
 import People from '../People/People';
 import Profile from '../Profile/Profile';
 import LoginForm from '../LoginForm/LoginForm';
-
+import RegistrationSuccess from '../RegistrationSuccess/RegistrationSuccess';
 import './App.css';
+
 
 
 function App() {
@@ -110,6 +111,14 @@ function App() {
           >
             <RegisterForm />
           </Route>
+
+          <ProtectedRoute
+            exact
+            path="/registrationSuccess"
+          >
+            <RegistrationSuccess />
+          </ProtectedRoute>
+
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
