@@ -47,7 +47,27 @@ router.post('/', (req, res) => {
   }
 });
 
-//Delete an Event
+// Update Person Data with a category id
+router.put('/:personId', (req, res) => {
+  let idToUpdate = req.params.personID;
+  let category = req.body.category;
+  let sqlText = `UPDATE category SET "category" = $1 WHERE "id" = $2;`;
+
+  pool
+    .query(sqlText, [category,idToUpdate])
+    .then((result) => {
+      console.log("Update in database", idToUpdate);
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(`Error making database query ${sqlText}`, error);
+      res.sendStatus(500);
+    });
+});
+
+
+
+//Delete an Person from the Database
 router.delete('/:id', (req, res) => {
   let idToDelete = req.params.id;
   console.log("idToDelete", idToDelete);

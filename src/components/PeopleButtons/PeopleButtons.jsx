@@ -4,13 +4,15 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { createPortal } from "react-dom";
 import { useState } from "react";
 
+import PeopleEditModal from "../PeopleEditModal/PeopleEditModal"
+
 function PeopleButtons(props) {
 
     const [showModal, setShowModal] = useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
 
-    let person = props.event
+    let person = props.person
 
     const deletePerson = () => {
         console.log("Person ID is:", props.person.id, "The button is working")

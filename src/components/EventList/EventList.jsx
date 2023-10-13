@@ -44,13 +44,6 @@ function EventList() {
                                 <td>{event.address}</td>
                                 <td>{event.notes}</td>
                                 <EventListButtons event={event} />
-                                {/* <button onClick={() => setShowModal(true)}>
-                                    Show modal using a portal
-                                </button>
-                                {showModal && createPortal(
-                                    <EventListModal onClose={() => setShowModal(false)} />,
-                                    document.body
-                                )} */}
                             </tr>
                         ))
                         }

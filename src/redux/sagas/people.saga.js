@@ -31,10 +31,21 @@ function* deletePerson(action) {
     }
   }
 
+function* updatePerson(action) {
+    try {
+      const updatePerson = yield axios.put(`/api/people/${action.payload.id}`, action.payload);
+      console.log("Update Success:",updatePerson)
+      yield put({ type: 'FETCH_PERSON_DATA'});
+    } catch (error) {
+      console.log("error DELETING images", error);
+    }
+  }
+
 function* personSaga() {
     yield takeLatest('SET_PERSON_POST', postPerson);
     yield takeLatest('FETCH_PERSON_DATA', fetchPeople);
     yield takeLatest('DELETE_PERSON_DATA', deletePerson);
+    yield takeLatest('UPDATE_PERSON_DATA', updatePerson);
 }
 
 export default personSaga;
