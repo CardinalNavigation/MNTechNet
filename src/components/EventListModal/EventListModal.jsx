@@ -17,7 +17,6 @@ export default function EventListModal(props) {
     // console.log("Event Name is:", eventName)
 
     const handleSubmit = () => {
-        console.log("Test")
         event.preventDefault();
 
 
@@ -32,9 +31,11 @@ export default function EventListModal(props) {
         console.log("Profile Update Object Looks Like", eventUpdateData)
 
         dispatch({
-            type: 'UPDATE_EVENT_INFO',
+            type: 'UPDATE_EVENT_DATA',
             payload: eventUpdateData
         });
+
+        
         props.onClose()
     }
 

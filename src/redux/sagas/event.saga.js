@@ -14,7 +14,7 @@ function* postEvent(action) {
 function* fetchEvents(action) {
     try {
         const eventList = yield axios.get('/api/events');
-        console.log('this is eventList.data', eventList.data);
+        // console.log('this is eventList.data', eventList.data);
         yield put({ type: 'SET_EVENT_DATA', payload: eventList.data });
     } catch (error) {
         console.log('Error with Events FETCH:', error);
@@ -31,10 +31,22 @@ function* deleteEvent(action) {
     }
   }
 
+  function* updateEvent(action) {
+    console.log(action.payload)
+    try {
+      const updateEvent = yield axios.put(`/api/events/${action.payload.id}`, action.payload);
+      console.log("Update Success:", updateEvent)
+      yield put({ type: 'FETCH_EVENT_DATA' });
+    } catch (error) {
+      console.log("error DELETING images", error);
+    }
+  }
+
 function* eventSaga() {
     yield takeLatest('SET_EVENT_POST', postEvent);
     yield takeLatest('FETCH_EVENT_DATA', fetchEvents);
     yield takeLatest('DELETE_EVENT_DATA', deleteEvent);
+    yield takeLatest('UPDATE_EVENT_DATA', updateEvent);
 }
 
 export default eventSaga;

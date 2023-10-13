@@ -48,22 +48,22 @@ router.post('/', (req, res) => {
 });
 
 // Update Event Data with a person id
-router.put('/:personId', (req, res) => {
-  let idToUpdate = req.body.id
-  console.log("Id to Update:", req.params.eventID)
+router.put('/:eventId', (req, res) => {
+  let idToUpdate = req.body.eventID
+  console.log("Id to Update:", idToUpdate)
   let eventData = req.body;
   console.log("Event Data is:", eventData)
-  let sqlText = `UPDATE people 
-  SET "name" = $2,
+  let sqlText = `UPDATE events 
+  SET 
+  "event_name" = $2,
   "date" = $3,
-  "company" = $4, 
-  "phone" = $5, 
-  "notes" = $6, 
-  "follow_up_date" = $7 
+  "time" = $4, 
+  "address" = $5, 
+  "notes" = $6 
   WHERE "id" = $1;`;
 
   pool
-    .query(sqlText, [idToUpdate, personData.name, personData.date, personData.company, personData.phone,personData.notes, personData.followUpDate])
+    .query(sqlText, [idToUpdate, eventData.eventName, eventData.date, eventData.time, eventData.address, eventData.notes])
     .then((result) => {
       console.log("ID updated in database", idToUpdate);
       res.sendStatus(200);

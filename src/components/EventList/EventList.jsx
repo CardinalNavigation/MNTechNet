@@ -10,7 +10,7 @@ import EventListButtons from "../EventListButtons/EventListButtons";
 function EventList() {
 
     const eventReducer = useSelector((store) => store.eventReducer.eventReducer);
-    console.log("Event Reducer Looks Like:", eventReducer)
+    // console.log("Event Reducer Looks Like:", eventReducer)
     const dispatch = useDispatch();
 
     // const [showModal, setShowModal] = useState(false);
