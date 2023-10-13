@@ -47,6 +47,34 @@ router.post('/', (req, res) => {
   }
 });
 
+// Update Event Data with a person id
+router.put('/:personId', (req, res) => {
+  let idToUpdate = req.body.id
+  console.log("Id to Update:", req.params.eventID)
+  let eventData = req.body;
+  console.log("Event Data is:", eventData)
+  let sqlText = `UPDATE people 
+  SET "name" = $2,
+  "date" = $3,
+  "company" = $4, 
+  "phone" = $5, 
+  "notes" = $6, 
+  "follow_up_date" = $7 
+  WHERE "id" = $1;`;
+
+  pool
+    .query(sqlText, [idToUpdate, personData.name, personData.date, personData.company, personData.phone,personData.notes, personData.followUpDate])
+    .then((result) => {
+      console.log("ID updated in database", idToUpdate);
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(`Error making database query ${sqlText}`, error);
+      res.sendStatus(500);
+    });
+});
+
+
 router.delete('/:id', (req, res) => {
   let idToDelete = req.params.id;
   console.log("idToDelete", idToDelete);

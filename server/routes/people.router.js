@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     "notes",
     TO_CHAR("date", 'MM-DD-YYYY') AS follow_up_date
     FROM people ORDER BY "id" ASC`;
-  console.log("Get text", sqlText);
+  // console.log("Get text", sqlText);
   pool
     .query(sqlText)
     .then((result) => {
@@ -47,16 +47,25 @@ router.post('/', (req, res) => {
   }
 });
 
-// Update Person Data with a category id
+// Update Person Data with a person id
 router.put('/:personId', (req, res) => {
-  let idToUpdate = req.params.personID;
-  let category = req.body.category;
-  let sqlText = `UPDATE category SET "category" = $1 WHERE "id" = $2;`;
+  let idToUpdate = req.body.id
+  // console.log("Id to Update:", req.params.personID)
+  let personData = req.body;
+  // console.log("Person Data is:", personData)
+  let sqlText = `UPDATE people 
+  SET "name" = $2,
+  "date" = $3,
+  "company" = $4, 
+  "phone" = $5, 
+  "notes" = $6, 
+  "follow_up_date" = $7 
+  WHERE "id" = $1;`;
 
   pool
-    .query(sqlText, [category,idToUpdate])
+    .query(sqlText, [idToUpdate, personData.name, personData.date, personData.company, personData.phone,personData.notes, personData.followUpDate])
     .then((result) => {
-      console.log("Update in database", idToUpdate);
+      console.log("ID updated in database", idToUpdate);
       res.sendStatus(200);
     })
     .catch((error) => {
