@@ -85,7 +85,7 @@ button[type="register"]:hover {
   border: 2px solid rgb(240, 240, 240);
   border-radius: 12px;
   position:  absolute;
-  width: 250px;
+  width: 50%;
   top: 70px;
   left: calc(50% - 125px);
   bottom: 70px;

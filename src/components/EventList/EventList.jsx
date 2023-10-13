@@ -2,7 +2,7 @@ import React from "react";
 import { createPortal } from 'react-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import EventListModal from "../EventListModal/EventListModal"
+// import EventListModal from "../EventListModal/EventListModal"
 
 import "./EventList.css";
 import EventListButtons from "../EventListButtons/EventListButtons";
@@ -13,7 +13,7 @@ function EventList() {
     console.log("Event Reducer Looks Like:", eventReducer)
     const dispatch = useDispatch();
 
-    const [showModal, setShowModal] = useState(false);
+    // const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         dispatch({ type: 'FETCH_EVENT_DATA' });
@@ -25,6 +25,7 @@ function EventList() {
                 <h2>Event List</h2>
                 <table>
                     <thead>
+                        <tr>
                         <th>Event Name</th>
                         <th>Date</th>
                         <th>Time</th>
@@ -32,6 +33,7 @@ function EventList() {
                         <th>Notes</th>
                         <th>Edit</th>
                         <th>Delete</th>
+                        </tr>
                     </thead>
                     <tbody>
                         {eventReducer.map((event) => (
@@ -42,13 +44,13 @@ function EventList() {
                                 <td>{event.address}</td>
                                 <td>{event.notes}</td>
                                 <EventListButtons event={event} />
-                                <button onClick={() => setShowModal(true)}>
+                                {/* <button onClick={() => setShowModal(true)}>
                                     Show modal using a portal
                                 </button>
                                 {showModal && createPortal(
                                     <EventListModal onClose={() => setShowModal(false)} />,
                                     document.body
-                                )}
+                                )} */}
                             </tr>
                         ))
                         }
