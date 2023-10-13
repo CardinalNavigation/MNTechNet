@@ -8,6 +8,7 @@ export default function EventListEdit(){
     const [time, setTime] = useState('');
     const [address, setAddress] = useState('');
     const [notes, setNotes] = useState('');
+    
 
     return (
         <>

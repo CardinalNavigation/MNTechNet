@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom"
 
 import './CreateEvent.css'
@@ -14,6 +14,9 @@ function CreateEvent() {
     const [time, setTime] = useState('');
     const [address, setAddress] = useState('');
     const [notes, setNotes] = useState('');
+
+    const user = useSelector((store) => store.user);
+    console.log("User is:", user)
 
     // Use Dispatch and History to send to the redux saga, which sends to server and ultimately our
     // SQL database
@@ -30,6 +33,7 @@ function CreateEvent() {
             time: time,
             address: address,
             notes: notes,
+            user:user.id
             // event_complete: false
         }
 

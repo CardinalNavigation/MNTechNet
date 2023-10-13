@@ -17,6 +17,7 @@ router.get('/', (req, res) => {
     "address",
     "notes",
     "event_complete"
+    "user_id"
     FROM events ORDER BY "date" ASC`;
     // console.log("Get text", sqlText);
     pool
@@ -37,11 +38,11 @@ router.post('/', (req, res) => {
   if (req.isAuthenticated()) {
     let newEventData = req.body
     // console.log('/shelf POST route');
-    // console.log(newEventData);
+    console.log(newEventData);
     // console.log('is authenticated?', req.isAuthenticated());
-    let queryText = `INSERT INTO "events" ("event_name", "date","time", "address", "notes")
-    VALUES ($1, $2, $3, $4, $5)`;
-    pool.query(queryText, [newEventData.eventName, newEventData.date, newEventData.time, newEventData.address, newEventData.notes])
+    let queryText = `INSERT INTO "events" ("event_name", "date","time", "address", "notes", "user_id")
+    VALUES ($1, $2, $3, $4, $5, $6)`;
+    pool.query(queryText, [newEventData.eventName, newEventData.date, newEventData.time, newEventData.address, newEventData.notes, newEventData.userID])
       .then((result) => {
         res.sendStatus(200);
       })
