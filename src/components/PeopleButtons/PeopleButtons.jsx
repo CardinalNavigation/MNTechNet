@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { createPortal } from "react-dom";
 import { useState } from "react";
@@ -12,11 +12,20 @@ function PeopleButtons(props) {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    const user = useSelector((store) => store.user)
+    let userId = user.id
+
     let person = props.person
 
     const deletePerson = () => {
         console.log("Person ID is:", props.person.id, "The button is working")
-        dispatch({ type: "DELETE_PERSON_DATA", payload: { id: props.person.id } });
+        dispatch({
+            type: "DELETE_PERSON_DATA",
+            payload: {
+                id: props.person.id,
+                userId: userId
+            }
+        });
     };
 
     return (

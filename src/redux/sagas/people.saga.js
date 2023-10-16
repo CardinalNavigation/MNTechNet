@@ -26,7 +26,7 @@ function* deletePerson(action) {
   try {
     const deletePerson = yield axios.delete(`/api/people/${action.payload.id}`);
     //   console.log("Delete Success:",deletePerson)
-    yield put({ type: 'FETCH_PERSON_DATA' });
+    yield put({ type: 'FETCH_PERSON_DATA', payload:action.payload.userId  });
   } catch (error) {
     console.log("error DELETING people", error);
   }
