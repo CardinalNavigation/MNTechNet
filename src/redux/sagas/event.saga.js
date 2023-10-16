@@ -25,8 +25,8 @@ function* fetchEvents(action) {
 function* deleteEvent(action) {
   try {
     const deleteEvent = yield axios.delete(`/api/events/${action.payload.id}`);
-    //   console.log(deleteEvent)
-    yield put({ type: 'FETCH_EVENT_DATA' });
+    console.log("Delete Success:", deleteEvent)
+    yield put({ type: 'FETCH_EVENT_DATA', payload: action.payload.userId });
   } catch (error) {
     console.log("error DELETING Event", error);
   }

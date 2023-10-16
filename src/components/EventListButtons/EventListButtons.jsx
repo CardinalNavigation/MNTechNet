@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { createPortal } from "react-dom";
 import { useState } from "react";
@@ -12,22 +12,32 @@ function EventListButtons(props) {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    const user = useSelector((store) => store.user)
+    let userId = user.id
+
+
     // console.log("EventListButton Props Looks Like:", props)
-    let event=props.event
+    let event = props.event
 
     const deleteEvent = () => {
-        console.log("Event ID is:", props.event.id, "The button is working")
-        dispatch({ type: "DELETE_EVENT_DATA", payload: { id: props.event.id } });
+        console.log("Event ID is:", props.event.id, "The button is working",  "UserID is: ",userId)
+        dispatch({
+            type: "DELETE_EVENT_DATA",
+            payload: {
+                id: props.event.id,
+                userId: userId
+            }
+        });
     };
 
     return (
         <>
             <td><button onClick={() => setShowModal(true)}>
-            ✏️
+                ✏️
             </button></td>
             {showModal && createPortal(
-                <EventListModal onClose={() => setShowModal(false)} 
-                event={event}/>,
+                <EventListModal onClose={() => setShowModal(false)}
+                    event={event} />,
                 document.body
             )}
 
