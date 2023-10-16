@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function EventListModal(props) {
 
@@ -12,6 +12,10 @@ export default function EventListModal(props) {
 
     const dispatch = useDispatch();
 
+    const user = useSelector((store) => store.user)
+    let userId = user.id
+
+
     // console.log("in Event Modal:", props.event.id)
     // console.log("in Event Modal:", props.onClose)
     // console.log("Event Name is:", eventName)
@@ -21,12 +25,13 @@ export default function EventListModal(props) {
 
 
         let eventUpdateData = {
-            eventID: props.event.id ,
+            eventID: props.event.id,
             eventName: eventName,
             date: date,
             time: time,
             address: address,
             notes: notes,
+            userId: userId
         }
         console.log("Profile Update Object Looks Like", eventUpdateData)
 
@@ -35,7 +40,7 @@ export default function EventListModal(props) {
             payload: eventUpdateData
         });
 
-        
+
         props.onClose()
     }
 
