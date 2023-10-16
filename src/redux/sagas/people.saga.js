@@ -28,7 +28,7 @@ function* deletePerson(action) {
     //   console.log("Delete Success:",deletePerson)
     yield put({ type: 'FETCH_PERSON_DATA' });
   } catch (error) {
-    console.log("error DELETING images", error);
+    console.log("error DELETING people", error);
   }
 }
 
@@ -36,10 +36,10 @@ function* updatePerson(action) {
   console.log(action.payload)
   try {
     const updatePerson = yield axios.put(`/api/people/${action.payload.id}`, action.payload);
-    console.log("Update Success:", updatePerson)
-    yield put({ type: 'FETCH_PERSON_DATA' });
+    console.log("Update Success:", action.payload)
+    yield put({ type: 'FETCH_PERSON_DATA', payload:action.payload.userId  });
   } catch (error) {
-    console.log("error DELETING images", error);
+    console.log("error Updating people", error);
   }
 }
 

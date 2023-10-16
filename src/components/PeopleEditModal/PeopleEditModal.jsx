@@ -1,15 +1,18 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function PeopleEditModal(props) {
 
     const [name, setName] = useState(props.person.name);
     const [date, setDate] = useState(props.person.formatted_date);
-    const [company, setCompany] = useState(props.person.phone);
+    const [company, setCompany] = useState(props.person.company);
     const [phone, setPhone] = useState(props.person.phone);
     const [notes, setNotes] = useState(props.person.notes);
     const [followUpDate, setFollowUpDate] = useState(props.person.follow_up_date);
+
+    const user = useSelector((store) => store.user)
+    let userId = user.id
 
     const dispatch = useDispatch();
 
@@ -30,6 +33,7 @@ export default function PeopleEditModal(props) {
             phone: phone,
             notes: notes,
             followUpDate: followUpDate,
+            userId:userId
         }
         console.log("Profile Update Object Looks Like", personUpdateData)
 
