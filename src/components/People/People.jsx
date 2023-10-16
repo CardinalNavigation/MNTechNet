@@ -6,12 +6,14 @@ import PeopleButtons from "../PeopleButtons/PeopleButtons";
 function People() {
 
     const peopleReducer = useSelector((store) => store.peopleReducer.peopleReducer);
+    const user = useSelector((store) => store.user)
+    let userId = user.id
     // console.log("People Reducer Looks Like:", peopleReducer)
     const dispatch = useDispatch();
 
 
     useEffect(() => {
-        dispatch({ type: 'FETCH_PERSON_DATA' });
+        dispatch({ type: 'FETCH_PERSON_DATA', payload: userId });
     }, []);
 
     return (

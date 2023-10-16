@@ -16,8 +16,6 @@ function EventList() {
     // console.log("Event Reducer Looks Like:", eventReducer)
     const dispatch = useDispatch();
 
-    // const [showModal, setShowModal] = useState(false);
-
     useEffect(() => {
         dispatch({ type: 'FETCH_EVENT_DATA', payload: userId});
     }, []);

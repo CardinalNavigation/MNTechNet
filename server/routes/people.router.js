@@ -2,8 +2,10 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
   if (req.isAuthenticated()) {
+    const userId = req.params.id;
+    console.log("Req.Params:", userId);
     /* We are breaking apart our GET call to the Database 
     so that the date comes formatted in Month Date and Year, 
     otherwise this will pull with a weird time-stamp. */
@@ -16,10 +18,12 @@ router.get('/', (req, res) => {
     "phone",
     "notes",
     TO_CHAR("date", 'MM-DD-YYYY') AS follow_up_date
-    FROM people ORDER BY "id" ASC`;
+    FROM people 
+    WHERE "user_id" = $1
+    ORDER BY "id" ASC`;
     // console.log("Get text", sqlText);
     pool
-      .query(sqlText)
+      .query(sqlText, [userId])
       .then((result) => {
         // console.log(`GET from database`, result);
         res.send(result.rows);
@@ -36,13 +40,14 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   if (req.isAuthenticated()) {
     let newPersonData = req.body
-    console.log('/shelf POST route');
+    console.log('/people POST route');
     console.log(newPersonData);
     // console.log('is authenticated?', req.isAuthenticated());
-    let queryText = `INSERT INTO "people" ("name", "date","company", "phone", "notes", "follow_up_date")
-    VALUES ($1, $2, $3, $4, $5, $6)`;
-    pool.query(queryText, [newPersonData.name, newPersonData.date, newPersonData.company, newPersonData.phone, newPersonData.notes, newPersonData.followUpDate])
+    let queryText = `INSERT INTO "people" ("name", "date","company", "phone", "notes", "follow_up_date", "user_id")
+    VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+    pool.query(queryText, [newPersonData.name, newPersonData.date, newPersonData.company, newPersonData.phone, newPersonData.notes, newPersonData.followUpDate, newPersonData.userId])
       .then((result) => {
+        console.log("POST Successful")
         res.sendStatus(200);
       })
       .catch((err) => console.log(err));

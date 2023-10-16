@@ -40,7 +40,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   if (req.isAuthenticated()) {
     let newEventData = req.body
-    // console.log('/shelf POST route');
+    // console.log('/event POST route');
     console.log(newEventData);
     // console.log('is authenticated?', req.isAuthenticated());
     let queryText = `INSERT INTO "events" ("event_name", "date","time", "address", "notes", "user_id")
