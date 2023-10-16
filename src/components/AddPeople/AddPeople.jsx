@@ -8,12 +8,12 @@ function AddPeople() {
 
     const user = useSelector((store) => store.user)
 
-    const [name, setName] = useState('Test');
-    const [date, setDate] = useState('11/23/23');
-    const [company, setCompany] = useState('Company');
-    const [phone, setPhone] = useState('123-123-1234');
-    const [notes, setNotes] = useState('11111');
-    const [followUpDate, setFollowUpDate] = useState('11/23/23');
+    const [name, setName] = useState('');
+    const [date, setDate] = useState('');
+    const [company, setCompany] = useState('');
+    const [phone, setPhone] = useState('');
+    const [notes, setNotes] = useState('');
+    const [followUpDate, setFollowUpDate] = useState('');
 
     // Use Dispatch and History to send to the redux saga, which sends to server and ultimately our
     // SQL database
