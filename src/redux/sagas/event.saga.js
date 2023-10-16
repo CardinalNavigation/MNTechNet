@@ -5,15 +5,16 @@ function* postEvent(action) {
     console.log('this is our event POST:', action.payload);
     try {
         yield axios.post('/api/events', action.payload);
-        yield put({ type: 'FETCH_EVENT_DATA' })
+        // yield put({ type: 'FETCH_EVENT_DATA' })
     } catch (error) {
         console.log('Error with Event Post:', error);
     }
 }
 
 function* fetchEvents(action) {
+  console.log("Action Payload:", action.payload)
     try {
-        const eventList = yield axios.get('/api/events');
+        const eventList = yield axios.get(`/api/events/${action.payload}`);
         // console.log('this is eventList.data', eventList.data);
         yield put({ type: 'SET_EVENT_DATA', payload: eventList.data });
     } catch (error) {

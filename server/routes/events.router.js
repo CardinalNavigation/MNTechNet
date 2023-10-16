@@ -3,8 +3,10 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 //GET Route
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
   if (req.isAuthenticated()) {
+    const userId = req.params.id;
+    console.log("Req.Params:", userId);
     /* We are breaking apart our GET call to the Database 
     so that the date comes formatted in Month Date and Year, 
     otherwise this will pull with a weird time-stamp. */
@@ -17,11 +19,12 @@ router.get('/', (req, res) => {
     "address",
     "notes",
     "event_complete"
-    "user_id"
-    FROM events ORDER BY "date" ASC`;
+    FROM events 
+    WHERE "user_id" = $1
+    ORDER BY "date" ASC`;
     // console.log("Get text", sqlText);
     pool
-      .query(sqlText)
+      .query(sqlText, [userId])
       .then((result) => {
         // console.log(`GET from database`, result);
         res.send(result.rows);
@@ -42,7 +45,7 @@ router.post('/', (req, res) => {
     // console.log('is authenticated?', req.isAuthenticated());
     let queryText = `INSERT INTO "events" ("event_name", "date","time", "address", "notes", "user_id")
     VALUES ($1, $2, $3, $4, $5, $6)`;
-    pool.query(queryText, [newEventData.eventName, newEventData.date, newEventData.time, newEventData.address, newEventData.notes, newEventData.userID])
+    pool.query(queryText, [newEventData.eventName, newEventData.date, newEventData.time, newEventData.address, newEventData.notes, newEventData.user])
       .then((result) => {
         res.sendStatus(200);
       })

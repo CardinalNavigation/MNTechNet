@@ -16,7 +16,7 @@ function CreateEvent() {
     const [notes, setNotes] = useState('');
 
     const user = useSelector((store) => store.user);
-    console.log("User is:", user)
+    // console.log("User is:", user)
 
     // Use Dispatch and History to send to the redux saga, which sends to server and ultimately our
     // SQL database

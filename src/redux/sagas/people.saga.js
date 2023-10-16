@@ -5,7 +5,7 @@ function* postPerson(action) {
   // console.log('this is our people POST:', action.payload);
   try {
     yield axios.post('/api/people', action.payload);
-    yield put({ type: 'FETCH_PERSON_DATA' })
+    // yield put({ type: 'FETCH_PERSON_DATA' })
   } catch (error) {
     console.log('Error with People Post:', error);
   }
@@ -13,6 +13,7 @@ function* postPerson(action) {
 
 function* fetchPeople(action) {
   try {
+    console.log("Action Payload:", action.payload)
     const personList = yield axios.get('/api/people');
     // console.log('this is personList.data', personList.data);
     yield put({ type: 'SET_PERSON_DATA', payload: personList.data });
