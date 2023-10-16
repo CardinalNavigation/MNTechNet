@@ -8,12 +8,13 @@ function Dashboard() {
    const peopleReducer = useSelector((store) => store.peopleReducer.peopleReducer);
    const user = useSelector((store) => store.user)
 
-   console.log(eventReducer[0].event_complete)
+   console.log('eventReducer:', eventReducer)
+   // console.log(eventReducer[0].event_complete)
    const dispatch = useDispatch();
 
    // let closestThreeEvents = eventReducer.slice(0, 3)
 
-   let closestThreeFollowUps = peopleReducer.slice(0, 3)
+   // let closestThreeFollowUps = peopleReducer.slice(0, 3)
    // console.log("Sliced Reducer Looks Like:", closestThreeFollowUps)
 
    const eventReducerToThree = (reducer) => {
@@ -22,14 +23,30 @@ function Dashboard() {
          console.log(reducer[i].event_complete)
          if (reducer[i].event_complete == false) {
             blankArray.push(reducer[i])
-            console.log("This is the new blank for events array after the function", blankArray)
+            console.log("This is the array after the function Completed", blankArray)
          }
       }
       return blankArray
    }
 
    let closestThreeEvents = eventReducerToThree(eventReducer)
-   // console.log("Sliced Reducer Looks Like:", closestThreeEvents)
+
+   const peopleReducerToThree = (reducer) => {
+      let blankArray = []
+      for (let i = 0; i < 3; i++) {
+         console.log(reducer[i].follow_up_complete)
+         if (reducer[i].follow_up_complete == false) {
+            blankArray.push(reducer[i])
+            console.log("This is the array after the function Completed", blankArray)
+         }
+      }
+      return blankArray
+   }
+
+   let closestThreeFollowUps = peopleReducerToThree([peopleReducer])
+
+
+
 
    const peopleCompleteButtonClicked = () => {
      
@@ -63,10 +80,10 @@ function Dashboard() {
             <h2>Upcoming Events</h2>
             <div>
                <ul>
-                  {closestThreeEvents.map((events) => (
+                  {closestThreeEvents.map((event) => (
                      <div>
-                        <li key={events.id}>
-                           {events.event_name} on {events.formatted_date} <button onClick={eventCompleteButtonClicked}>✅</button>
+                        <li key={event.id}>
+                           {event.event_name} on {event.formatted_date} <button onClick={eventCompleteButtonClicked}>✅</button>
                         </li>
 
                      </div>

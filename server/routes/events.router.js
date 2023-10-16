@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/:id', (req, res) => {
   if (req.isAuthenticated()) {
     const userId = req.params.id;
-    // console.log("Req.Params:", userId);
+    console.log("Req.Params:", userId);
     /* We are breaking apart our GET call to the Database 
     so that the date comes formatted in Month Date and Year, 
     otherwise this will pull with a weird time-stamp. */
