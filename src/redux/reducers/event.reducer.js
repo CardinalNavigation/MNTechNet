@@ -1,18 +1,20 @@
 import { combineReducers } from "redux";
 
-const initialState = [
-  {
-    address: "",
-    event_complete: true,
-    event_name: "",
-    formatted_date: "",
-    id: -1,
-    notes: "",
-    time: "",
-  },
-];
+// This was a solution JD proposed for us, to use dummy data so that the function does not 
+// interfere with the rendering of the page. 
+// const initialState = [
+//   {
+//     address: "",
+//     event_complete: true,
+//     event_name: "",
+//     formatted_date: "",
+//     id: -1,
+//     notes: "",
+//     time: "",
+//   },
+// ];
 
-const eventReducer = (state = initialState, action) => {
+const eventReducer = (state = [], action) => {
   switch (action.type) {
     case "SET_EVENT_DATA":
       return action.payload;
