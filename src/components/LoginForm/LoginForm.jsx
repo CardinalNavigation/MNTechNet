@@ -7,9 +7,10 @@ function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector(store => store.errors);
+  const user = useSelector((store) => store.user)
   const dispatch = useDispatch();
   const history = useHistory();
-  
+
   const login = (event) => {
     event.preventDefault();
 
@@ -24,6 +25,16 @@ function LoginForm() {
     } else {
       dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
+
+    dispatch({
+      type: 'FETCH_EVENT_DATA',
+      payload: user.id
+    });
+    dispatch({
+      type: 'FETCH_PERSON_DATA',
+      payload: user.id
+    });
+
     history.push('/dashboard')
   }; // end login
 

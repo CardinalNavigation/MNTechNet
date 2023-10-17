@@ -20,7 +20,7 @@ router.get('/:id', (req, res) => {
     TO_CHAR("date", 'MM-DD-YYYY') AS follow_up_date
     FROM people 
     WHERE "user_id" = $1
-    ORDER BY "id" ASC`;
+    ORDER BY "date" ASC`;
     // console.log("Get text", sqlText);
     pool
       .query(sqlText, [userId])
