@@ -1,8 +1,10 @@
 import React from "react"
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { Button, List, ListItem, ListItemButton, Typography } from "@mui/material";
+import { Box, Button, List, ListItem, ListItemButton, Typography } from "@mui/material";
 import CheckIcon from '@mui/icons-material/Check';
+import { ListItemContent } from "@mui/joy";
+import { red } from "@mui/material/colors";
 
 function Dashboard() {
 
@@ -25,27 +27,38 @@ function Dashboard() {
    const eventReducer = useSelector((store) => store.eventReducer.eventReducer);
    const peopleReducer = useSelector((store) => store.peopleReducer.peopleReducer);
 
-   // console.log('eventReducer:', eventReducer)
+   console.log('eventReducer:', eventReducer)
    // console.log(eventReducer[0].event_complete)
    const dispatch = useDispatch();
 
-   let closestThreeEvents = eventReducer.slice(0, 3)
+   // let closestThreeEvents = eventReducer.slice(0, 3)
    let closestThreeFollowUps = peopleReducer.slice(0, 3)
    // console.log("Sliced Reducer Looks Like:", closestThreeFollowUps)
 
-   // const eventReducerToThree = (reducer) => {
-   //    let blankArray = []
-   //    for (let i = 0; i < 3; i++) {
-   //       console.log(reducer[i].event_complete)
-   //       if (reducer[i].event_complete == false) {
-   //          blankArray.push(reducer[i])
-   //          console.log("This is the Event array after the function Completed", blankArray)
-   //       }
-   //    }
-   //    return blankArray
-   // }
+   const eventReducerToThree = (reducer) => {
+      let blankArray = []
+      console.log("This is the Array Passed In:", reducer)
+      
+      
+      const output=reducer.filter((event)=>{
+         if (event.event_complete == false) {
+            return event
+            // console.log("This is the Event array after the function Completed", blankArray)
+         }
+      })
 
-   // let closestThreeEvents = eventReducerToThree(eventReducer)
+
+      // for (let i = 0; i < 3; i++) {
+      //    console.log(reducer[i].event_complete)
+      //    if (reducer[i].event_complete == false) {
+      //       blankArray.push(reducer[i])
+      //       // console.log("This is the Event array after the function Completed", blankArray)
+      //    }
+      // }
+      return output
+   }
+
+   let closestThreeEvents = eventReducerToThree(eventReducer)
 
    // const peopleReducerToThree = (reducer) => {
    //    let blankArray = []
@@ -78,21 +91,34 @@ function Dashboard() {
 
    return (
       <div>
-         <h1>Dashboard</h1>
+         <Typography level="">Dashboard</Typography>
          <div>
-            <h2>Upcoming Events</h2>
+            <Typography level="h2"><h2>Upcoming Events</h2></Typography>
             <div>
-               <List>
-                  {closestThreeEvents.map((event) => (
-                     <div>
-                        <ListItem variant="solid" key={event.id}>
-                           <ListItemButton variant="outlined">
-                           {event.event_name} on {event.formatted_date} <Button variant="contained" onClick={eventCompleteButtonClicked}><CheckIcon></CheckIcon></Button>
-                           </ListItemButton>
-                        </ListItem>
-                     </div>
-                  ))}
-               </List>
+               <Box sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+               }}>
+                  <List
+                     size="sm"
+                     variant="outlined"
+                  >
+                     {closestThreeEvents.map((event) => (
+                        <div>
+                           <ListItem key={event.id}>
+                              <ListItemButton color="primary" variant="plain">
+                                 <ListItemContent>
+                                    {event.event_name} on {event.formatted_date}
+                                    <Button variant="contained" onClick={eventCompleteButtonClicked}>
+                                       <CheckIcon></CheckIcon>
+                                    </Button>
+                                 </ListItemContent>
+                              </ListItemButton>
+                           </ListItem>
+                        </div>
+                     ))}
+                  </List>
+               </Box>
             </div>
             <h2>People to Follow-up With</h2>
             <div>
