@@ -17,7 +17,8 @@ router.get('/:id', (req, res) => {
     "company",
     "phone",
     "notes",
-    TO_CHAR("date", 'MM-DD-YYYY') AS follow_up_date
+    TO_CHAR("date", 'MM-DD-YYYY') AS follow_up_date,
+    "follow_up_complete"
     FROM people 
     WHERE "user_id" = $1
     ORDER BY "date" ASC`;

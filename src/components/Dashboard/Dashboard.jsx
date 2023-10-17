@@ -34,17 +34,12 @@ function Dashboard() {
     (store) => store.peopleReducer.peopleReducer
   );
 
-  console.log("eventReducer:", eventReducer);
-  // console.log(eventReducer[0].event_complete)
+//   console.log("eventReducer:", eventReducer);
+  console.log("peopleReducer:", peopleReducer);
   const dispatch = useDispatch();
 
-  // let closestThreeEvents = eventReducer.slice(0, 3)
-  let closestThreeFollowUps = peopleReducer.slice(0, 3);
-  // console.log("Sliced Reducer Looks Like:", closestThreeFollowUps)
-
   const eventReducerToThree = (reducer) => {
-    let blankArray = [];
-    console.log("This is the Array Passed In:", reducer);
+   //  console.log("This is the Event Array Passed In:", reducer);
 
     let output = [];
     // some bit of logic that says: only do this, if the data is there.
@@ -53,28 +48,35 @@ function Dashboard() {
       output = reducer.filter((event) => {
         if (event.event_complete == false) {
           return event;
-          // console.log("This is the Event array after the function Completed", blankArray)
         }
       });
     }
     return output;
   };
+  
 
   let closestThreeEvents = eventReducerToThree(eventReducer);
 
-  // const peopleReducerToThree = (reducer) => {
-  //    let blankArray = []
-  //    for (let i = 0; i < 3; i++) {
-  //       console.log(reducer[i].follow_up_complete)
-  //       if (reducer[i].follow_up_complete == false) {
-  //          blankArray.push(reducer[i])
-  //          console.log("This is the People array after the function Completed", blankArray)
-  //       }
-  //    }
-  //    return blankArray
-  // }
+  const peopleReducerToThree = (reducer) => {
+    console.log("This is the People Array Passed In:", reducer);
 
-  // let closestThreeFollowUps = peopleReducerToThree([peopleReducer])
+    let output = [];
+    // some bit of logic that says: only do this, if the data is there.
+    // this helps the page load when the reducer has not been filled but our GET dispatch yet. 
+    if (reducer && reducer.length > 0) {
+      output = reducer.filter((people) => {
+         console.log(people)
+        if (people.follow_up_complete == false) {
+          return people;
+        }
+      });
+    }
+    return output;
+  };
+  
+
+  let closestThreePeople = peopleReducerToThree(peopleReducer);
+  console.log("Closest 3 People:",closestThreePeople)
 
   const peopleCompleteButtonClicked = () => {
     console.log("clicked");
@@ -126,11 +128,11 @@ function Dashboard() {
             }}
           >
             <List size="sm" variant="outlined">
-              {closestThreeEvents.map((event) => (
-                <ListItem key={event.id}>
+              {closestThreePeople.map((person) => (
+                <ListItem key={person.id}>
                   <ListItemButton color="primary" variant="plain">
                     <ListItemContent>
-                      {event.event_name} Follow Up on {event.formatted_date}
+                      {person.name} follow up on {person.follow_up_date}
                       <Button
                         variant="contained"
                         onClick={eventCompleteButtonClicked}
