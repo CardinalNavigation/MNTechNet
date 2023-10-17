@@ -11,7 +11,8 @@ import {
 } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import { ListItemContent } from "@mui/joy";
-import { red } from "@mui/material/colors";
+import DashboardEventItem from "../DashboardEventItem/DashboardEventItem";
+import DashboardPeopleItem from "../DashboardPeopleItem/DashboardPeopleItem";
 
 function Dashboard() {
   useEffect(() => {
@@ -34,16 +35,16 @@ function Dashboard() {
     (store) => store.peopleReducer.peopleReducer
   );
 
-//   console.log("eventReducer:", eventReducer);
-  console.log("peopleReducer:", peopleReducer);
+  //   console.log("eventReducer:", eventReducer);
+  //   console.log("peopleReducer:", peopleReducer);
   const dispatch = useDispatch();
 
   const eventReducerToThree = (reducer) => {
-   //  console.log("This is the Event Array Passed In:", reducer);
+    //  console.log("This is the Event Array Passed In:", reducer);
 
     let output = [];
     // some bit of logic that says: only do this, if the data is there.
-    // this helps the page load when the reducer has not been filled but our GET dispatch yet. 
+    // this helps the page load when the reducer has not been filled but our GET dispatch yet.
     if (reducer && reducer.length > 0) {
       output = reducer.filter((event) => {
         if (event.event_complete == false) {
@@ -53,19 +54,18 @@ function Dashboard() {
     }
     return output;
   };
-  
 
   let closestThreeEvents = eventReducerToThree(eventReducer);
 
   const peopleReducerToThree = (reducer) => {
-    console.log("This is the People Array Passed In:", reducer);
+    //  console.log("This is the People Array Passed In:", reducer);
 
     let output = [];
     // some bit of logic that says: only do this, if the data is there.
-    // this helps the page load when the reducer has not been filled but our GET dispatch yet. 
+    // this helps the page load when the reducer has not been filled but our GET dispatch yet.
     if (reducer && reducer.length > 0) {
       output = reducer.filter((people) => {
-         console.log(people)
+        console.log(people);
         if (people.follow_up_complete == false) {
           return people;
         }
@@ -73,14 +73,10 @@ function Dashboard() {
     }
     return output;
   };
-  
 
   let closestThreePeople = peopleReducerToThree(peopleReducer);
-  console.log("Closest 3 People:",closestThreePeople)
+  //   console.log("Closest 3 People:",closestThreePeople)
 
-  const peopleCompleteButtonClicked = () => {
-    console.log("clicked");
-  };
   const eventCompleteButtonClicked = () => {
     console.log("clicked");
     function completeButton() {}
@@ -102,19 +98,7 @@ function Dashboard() {
           >
             <List size="sm" variant="outlined">
               {closestThreeEvents.map((event) => (
-                <ListItem key={event.id}>
-                  <ListItemButton color="primary" variant="plain">
-                    <ListItemContent>
-                      {event.event_name} on {event.formatted_date}
-                      <Button
-                        variant="contained"
-                        onClick={eventCompleteButtonClicked}
-                      >
-                        <CheckIcon></CheckIcon>
-                      </Button>
-                    </ListItemContent>
-                  </ListItemButton>
-                </ListItem>
+                <DashboardEventItem event={event} />
               ))}
             </List>
           </Box>
@@ -129,19 +113,7 @@ function Dashboard() {
           >
             <List size="sm" variant="outlined">
               {closestThreePeople.map((person) => (
-                <ListItem key={person.id}>
-                  <ListItemButton color="primary" variant="plain">
-                    <ListItemContent>
-                      {person.name} follow up on {person.follow_up_date}
-                      <Button
-                        variant="contained"
-                        onClick={eventCompleteButtonClicked}
-                      >
-                        <CheckIcon></CheckIcon>
-                      </Button>
-                    </ListItemContent>
-                  </ListItemButton>
-                </ListItem>
+                <DashboardPeopleItem person={person} />
               ))}
             </List>
           </Box>
