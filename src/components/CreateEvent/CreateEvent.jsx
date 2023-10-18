@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom"
 
 import './CreateEvent.css'
+import { Box, Typography } from "@mui/material";
 
 function CreateEvent() {
     // Below useState relates to the Create Event Form Which Captures User Input
@@ -33,7 +34,7 @@ function CreateEvent() {
             time: time,
             address: address,
             notes: notes,
-            user:user.id
+            user: user.id
             // event_complete: false
         }
 
@@ -55,10 +56,17 @@ function CreateEvent() {
 
     return (
         <div>
-            <div>
-                <h2>Create Event</h2>
-            </div>
-            <div>
+            <Box
+                display="flex"
+                justifyContent="center"
+                sx={{ py: 4 }}>
+                <Typography variant="h3" color="#235179">Create Event</Typography>
+            </Box>
+            <Box
+                display="flex"
+                justifyContent="center"
+                flexDirection="column"
+                sx={{ py: 4 }}>
                 <form onSubmit={handleSubmit}>
                     <input value={eventName} placeholder="Name of Event" type="text" onChange={(event) => setEventName(event.target.value)}></input>
                     <input value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></input>
@@ -67,8 +75,8 @@ function CreateEvent() {
                     <input value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></input>
                     <button type='submit'>Submit</button>
                 </form>
-                <button type='nevermind'>Nevermind</button>
-            </div>
+            </Box>
+            <button type='nevermind'>Nevermind</button>
         </div>
     )
 }

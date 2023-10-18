@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 import "./EventList.css";
 import EventListButtons from "../EventListButtons/EventListButtons";
+import { Box, Typography } from "@mui/material";
 
 function EventList() {
 
@@ -23,7 +24,12 @@ function EventList() {
     return (
         <>
             <div>
-                <h2>Event List</h2>
+            <Box
+                display="flex"
+                justifyContent="center"
+                sx={{ py: 4 }}>
+                <Typography variant="h3" color="#235179">Event List</Typography>
+            </Box>
                 <table>
                     <thead>
                         <tr>

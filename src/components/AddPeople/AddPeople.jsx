@@ -1,3 +1,4 @@
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -55,7 +56,12 @@ function AddPeople() {
     return (
         <div>
             <div>
-                <h2>Add Person</h2>
+            <Box
+                display="flex"
+                justifyContent="center"
+                sx={{ py: 4 }}>
+                <Typography variant="h3" color="#235179">Add Person</Typography>
+            </Box>
             </div>
             <div>
                 <form onSubmit={handleSubmit}>

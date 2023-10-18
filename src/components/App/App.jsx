@@ -22,6 +22,8 @@ import LoginForm from '../LoginForm/LoginForm';
 import RegistrationSuccess from '../RegistrationSuccess/RegistrationSuccess';
 import EventListEdit from '../EventListEdit/EventListEdit';
 import './App.css';
+import { Container } from '@mui/material';
+
 
 
 
@@ -35,7 +37,8 @@ function App() {
   }, [dispatch]);
 
   return (
-    <Router>
+    <Container sx={{height: '100v'}}>
+    <Router> 
       <div>
         <Nav />
         <Switch>
@@ -137,6 +140,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </Container>
   );
 }
 

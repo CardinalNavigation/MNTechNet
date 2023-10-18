@@ -55,7 +55,7 @@ button[type="nevermind"] {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
-}
+} 
 
 button[type="register"] {
   background-color: #EBA432;

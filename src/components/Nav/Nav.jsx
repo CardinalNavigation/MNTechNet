@@ -3,14 +3,17 @@ import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
+import { AppBar, Container, Typography } from '@mui/material';
 
 function Nav() {
   const user = useSelector((store) => store.user);
 
   return (
+
     <div className="nav">
       <Link to="/login">
-        <h2 className="nav-title">MNTechNet</h2>
+        {/* <h2 className="nav-title">MNTechNet</h2> */}
+        <Typography variant='h2' fontWeight='bold' color="white">MNTechNet</Typography>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
@@ -25,22 +28,22 @@ function Nav() {
         {user.id && (
           <>
             <Link className="navLink" to="/dashboard">
-              Dashboard
+              <Typography variant='h6'> Dashboard</Typography>
             </Link>
             <Link className="navLink" to="/createEvent">
-             Create Event
+              <Typography variant='h6'> Create Event</Typography>
             </Link>
             <Link className="navLink" to="/eventList">
-             Event List
+              <Typography variant='h6'>  Event List </Typography>
             </Link>
             <Link className="navLink" to="/addPeople">
-            Add People
+            <Typography variant='h6'> Add People </Typography>
             </Link>
             <Link className="navLink" to="/people">
-            People
+            <Typography variant='h6'>People </Typography>
             </Link>
             <Link className="navLink" to="/profile">
-            Profile
+            <Typography variant='h6'> Profile </Typography>
             </Link>
             <LogOutButton className="navLink" />
           </>

@@ -1,3 +1,4 @@
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -48,7 +49,12 @@ function Profile() {
 
     return (
         <>
-            <h2>Edit Profile</h2>
+               <Box
+                display="flex"
+                justifyContent="center"
+                sx={{ py: 4 }}>
+                <Typography variant="h3" color="#235179">People</Typography>
+            </Box>
             <div>
                 <form onSubmit={handleSubmit}>
                     <input value={username} placeholder="Username" type="text" onChange={(event) => setUsername(event.target.value)}></input>

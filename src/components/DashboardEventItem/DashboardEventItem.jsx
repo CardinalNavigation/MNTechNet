@@ -37,7 +37,7 @@ export default function DashboardEventItem({ event }) {
   return (
     <>
       <ListItem key={event.id}>
-        <ListItemButton color="primary" variant="plain">
+        <ListItemButton  variant="soft">
           <ListItemContent>
             {event.event_name} on {event.formatted_date}
             <Button variant="contained" onClick={eventCompleteButtonClicked}>

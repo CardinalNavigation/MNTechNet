@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -11,7 +12,7 @@ function LogOutButton(props) {
       className={props.className}
       onClick={() => dispatch({ type: 'LOGOUT' })}
     >
-      Log Out
+       <Typography variant='h6'> Log Out</Typography>
     </button>
   );
 }

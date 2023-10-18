@@ -1,11 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Box, List, Typography } from "@mui/material";
+import { Box, List, Typography, ListItem } from "@mui/material";
 import DashboardEventItem from "../DashboardEventItem/DashboardEventItem";
 import DashboardPeopleItem from "../DashboardPeopleItem/DashboardPeopleItem";
 
 function Dashboard() {
+
   useEffect(() => {
     dispatch({
       type: "FETCH_EVENT_DATA",
@@ -47,7 +48,7 @@ function Dashboard() {
   };
 
   let closestThreeEvents = eventReducerToThree(eventReducer);
-  closestThreeEvents=closestThreeEvents.slice(0,3)
+  closestThreeEvents = closestThreeEvents.slice(0, 3)
 
   const peopleReducerToThree = (reducer) => {
     //  console.log("This is the People Array Passed In:", reducer);
@@ -67,47 +68,51 @@ function Dashboard() {
   };
 
   let closestThreePeople = peopleReducerToThree(peopleReducer);
-  closestThreePeople=closestThreePeople.slice(0,3)
+  closestThreePeople = closestThreePeople.slice(0, 3)
 
 
   return (
-    <div>
-      <Typography level="">Dashboard</Typography>
-      <div>
-        <Typography level="h2">
-          <h2>Upcoming Events</h2>
+    <Box>
+      <Box
+        display="flex"
+        justifyContent="center"
+        sx={{ py: 4 }}>
+        <Typography variant="h3" color="#235179">Dashboard</Typography>
+      </Box>
+      <Box
+        flexDirection="column"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        sx={{ py: 2 }}>
+        <Typography
+          variant="h4"
+          color="#80AEB6">
+          Upcoming Events
         </Typography>
-        <div>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <List size="sm" variant="outlined">
-              {closestThreeEvents.map((event) => (
-                <DashboardEventItem key={event.id} event={event} />
-              ))}
-            </List>
-          </Box>
-        </div>
-        <h2>People to Follow-up With</h2>
-        <div>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <List size="sm" variant="outlined">
-              {closestThreePeople.map((person) => (
-                <DashboardPeopleItem key={person.id} person={person} />
-              ))}
-            </List>
-          </Box>
-        </div>
-      </div>
-    </div>
+        <List size={'sm'} variant="outlined">
+          {closestThreeEvents.map((event) => (
+            <DashboardEventItem key={event.id} event={event} />
+          ))}
+        </List>
+      </Box>
+      <Box flexDirection="column"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        sx={{ py: 2 }}>
+          <Typography
+            variant="h4"
+            color="#80AEB6">
+            People to Follow-up With
+          </Typography>
+          <List display="flex">
+            {closestThreePeople.map((person) => (
+              <DashboardPeopleItem key={person.id} person={person} />
+            ))}
+          </List>
+      </Box>
+    </Box>
   );
 }
 
