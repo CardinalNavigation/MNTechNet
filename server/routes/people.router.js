@@ -56,7 +56,7 @@ router.post('/', (req, res) => {
 });
 
 // Update Person Data with a person id
-router.put('/:personId', (req, res) => {
+router.put('/update-data/:personId', (req, res) => {
   if (req.isAuthenticated()) {
     let idToUpdate = req.body.id
     // console.log("Id to Update:", req.params.personID)
@@ -73,6 +73,31 @@ router.put('/:personId', (req, res) => {
 
     pool
       .query(sqlText, [idToUpdate, personData.name, personData.date, personData.company, personData.phone, personData.notes, personData.followUpDate])
+      .then((result) => {
+        console.log("ID updated in database", idToUpdate);
+        res.sendStatus(200);
+      })
+      .catch((error) => {
+        console.log(`Error making database query ${sqlText}`, error);
+        res.sendStatus(500);
+      });
+  }
+});
+
+//This route is only for updating the completion status of a follow-up
+router.put('/update-completion/:personId', (req, res) => {
+  if (req.isAuthenticated()) {
+    let idToUpdate = req.body.id
+    // console.log("Id to Update:", req.params.personID)
+    let personData = req.body;
+    console.log("Person Data is:", personData)
+    let sqlText = `UPDATE people 
+  SET
+  "follow_up_complete" = $2 
+  WHERE "id" = $1;`;
+
+    pool
+      .query(sqlText, [idToUpdate, personData.followupCompleteStatus])
       .then((result) => {
         console.log("ID updated in database", idToUpdate);
         res.sendStatus(200);

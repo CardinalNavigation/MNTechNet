@@ -15,7 +15,7 @@ function* fetchPeople(action) {
   try {
     console.log("Action Payload:", action.payload)
     const personList = yield axios.get(`/api/people/${action.payload}`);
-    // console.log('this is personList.data', personList.data);
+    console.log('this is personList.data', personList.data);
     yield put({ type: 'SET_PERSON_DATA', payload: personList.data });
   } catch (error) {
     console.log('Error with Person Table FETCH:', error);
@@ -35,8 +35,19 @@ function* deletePerson(action) {
 function* updatePerson(action) {
   console.log(action.payload)
   try {
-    const updatePerson = yield axios.put(`/api/people/${action.payload.id}`, action.payload);
+    const updatePerson = yield axios.put(`/api/people/update-data/${action.payload.id}`, action.payload);
     console.log("Update Success:", action.payload)
+    yield put({ type: 'FETCH_PERSON_DATA', payload:action.payload.userId  });
+  } catch (error) {
+    console.log("error Updating people", error);
+  }
+}
+
+function* updatePersonFollowUp(action) {
+  console.log("Update Follow-up Looks like:", action.payload)
+  try {
+    const updatePerson = yield axios.put(`/api/people/update-completion/${action.payload.id}`, action.payload);
+    console.log("Update Success:", action.payload, "id:", action.payload.id)
     yield put({ type: 'FETCH_PERSON_DATA', payload:action.payload.userId  });
   } catch (error) {
     console.log("error Updating people", error);
@@ -48,6 +59,7 @@ function* personSaga() {
   yield takeLatest('FETCH_PERSON_DATA', fetchPeople);
   yield takeLatest('DELETE_PERSON_DATA', deletePerson);
   yield takeLatest('UPDATE_PERSON_DATA', updatePerson);
+  yield takeLatest('UPDATE_FOLLOW_UP_DATA', updatePersonFollowUp);
 }
 
 export default personSaga;

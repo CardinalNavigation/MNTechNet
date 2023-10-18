@@ -13,7 +13,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import { ListItemContent } from "@mui/joy";
 
 export default function DashboardEventItem(props) {
-    console.log("event is:", props)
+    // console.log("event is:", props)
 
   const eventCompleteButtonClicked = () => {
     console.log("clicked", props.event.event_name);

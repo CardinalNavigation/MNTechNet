@@ -1,16 +1,7 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  Box,
-  Button,
-  List,
-  ListItem,
-  ListItemButton,
-  Typography,
-} from "@mui/material";
-import CheckIcon from "@mui/icons-material/Check";
-import { ListItemContent } from "@mui/joy";
+import { Box, List, Typography } from "@mui/material";
 import DashboardEventItem from "../DashboardEventItem/DashboardEventItem";
 import DashboardPeopleItem from "../DashboardPeopleItem/DashboardPeopleItem";
 
@@ -36,7 +27,7 @@ function Dashboard() {
   );
 
   //   console.log("eventReducer:", eventReducer);
-  //   console.log("peopleReducer:", peopleReducer);
+  //   console.log("peopleReducer:", peopleReducer);]
   const dispatch = useDispatch();
 
   const eventReducerToThree = (reducer) => {
@@ -65,7 +56,7 @@ function Dashboard() {
     // this helps the page load when the reducer has not been filled but our GET dispatch yet.
     if (reducer && reducer.length > 0) {
       output = reducer.filter((people) => {
-        console.log(people);
+        //   console.log(people);
         if (people.follow_up_complete == false) {
           return people;
         }
@@ -98,7 +89,10 @@ function Dashboard() {
           >
             <List size="sm" variant="outlined">
               {closestThreeEvents.map((event) => (
-                <DashboardEventItem event={event} />
+                <DashboardEventItem
+                  key={event.id}
+                  event={event}
+                />
               ))}
             </List>
           </Box>
@@ -113,7 +107,7 @@ function Dashboard() {
           >
             <List size="sm" variant="outlined">
               {closestThreePeople.map((person) => (
-                <DashboardPeopleItem person={person} />
+                <DashboardPeopleItem key={person.id} person={person} />
               ))}
             </List>
           </Box>
