@@ -13,9 +13,9 @@ function* postPerson(action) {
 
 function* fetchPeople(action) {
   try {
-    console.log("Action Payload:", action.payload)
+    // console.log("Action Payload:", action.payload)
     const personList = yield axios.get(`/api/people/${action.payload}`);
-    console.log('this is personList.data', personList.data);
+    // console.log('this is personList.data', personList.data);
     yield put({ type: 'SET_PERSON_DATA', payload: personList.data });
   } catch (error) {
     console.log('Error with Person Table FETCH:', error);
