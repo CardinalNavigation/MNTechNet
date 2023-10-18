@@ -35,7 +35,7 @@ function Dashboard() {
     // let closestThreeEvents = eventReducer.slice(0, 3);
     let output = [];
     // some bit of logic that says: only do this, if the data is there.
-    // this helps the page load when the reducer has not been filled but our GET dispatch yet.
+    // the if statement helps the page load when the reducer has not been filled by our GET dispatch yet.
     if (reducer && reducer.length > 0) {
       output = reducer.filter((event) => {
         if (event.event_complete == false) {
@@ -54,7 +54,7 @@ function Dashboard() {
 
     let output = [];
     // some bit of logic that says: only do this, if the data is there.
-    // this helps the page load when the reducer has not been filled but our GET dispatch yet.
+    // the if statement helps the page load when the reducer has not been filled by our GET dispatch yet.
     if (reducer && reducer.length > 0) {
       output = reducer.filter((people) => {
         //   console.log(people);
@@ -68,12 +68,7 @@ function Dashboard() {
 
   let closestThreePeople = peopleReducerToThree(peopleReducer);
   closestThreePeople=closestThreePeople.slice(0,3)
-  //   console.log("Closest 3 People:",closestThreePeople)
 
-  const eventCompleteButtonClicked = () => {
-    console.log("clicked");
-    function completeButton() {}
-  };
 
   return (
     <div>
