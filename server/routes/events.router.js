@@ -1,17 +1,16 @@
-const express = require('express');
-const pool = require('../modules/pool');
+const express = require("express");
+const pool = require("../modules/pool");
 const router = express.Router();
 
 //GET Route
-router.get('/:id', (req, res) => {
+router.get("/:id", (req, res) => {
   if (req.isAuthenticated()) {
     const userId = req.params.id;
     console.log("Req.Params:", userId);
     /* We are breaking apart our GET call to the Database 
     so that the date comes formatted in Month Date and Year, 
     otherwise this will pull with a weird time-stamp. */
-    const sqlText =
-      `SELECT 
+    const sqlText = `SELECT 
     "id", 
     "event_name",
     TO_CHAR("date", 'MM-DD-YYYY') AS formatted_date,
@@ -37,15 +36,23 @@ router.get('/:id', (req, res) => {
 });
 
 //POST Route
-router.post('/', (req, res) => {
+router.post("/", (req, res) => {
   if (req.isAuthenticated()) {
-    let newEventData = req.body
+    let newEventData = req.body;
     // console.log('/event POST route');
     console.log(newEventData);
     // console.log('is authenticated?', req.isAuthenticated());
     let queryText = `INSERT INTO "events" ("event_name", "date","time", "address", "notes", "user_id")
     VALUES ($1, $2, $3, $4, $5, $6)`;
-    pool.query(queryText, [newEventData.eventName, newEventData.date, newEventData.time, newEventData.address, newEventData.notes, newEventData.user])
+    pool
+      .query(queryText, [
+        newEventData.eventName,
+        newEventData.date,
+        newEventData.time,
+        newEventData.address,
+        newEventData.notes,
+        newEventData.user,
+      ])
       .then((result) => {
         res.sendStatus(200);
       })
@@ -54,12 +61,12 @@ router.post('/', (req, res) => {
 });
 
 // Update Event Data with a person id
-router.put('/:eventId', (req, res) => {
+router.put("/update-data/:eventId", (req, res) => {
   if (req.isAuthenticated()) {
-    let idToUpdate = req.body.eventID
-    console.log("Id to Update:", idToUpdate)
+    let idToUpdate = req.body.eventID;
+    console.log("Id to Update:", idToUpdate);
     let eventData = req.body;
-    console.log("Event Data is:", eventData)
+    console.log("Event Data is:", eventData);
     let sqlText = `UPDATE events 
   SET 
   "event_name" = $2,
@@ -70,7 +77,14 @@ router.put('/:eventId', (req, res) => {
   WHERE "id" = $1;`;
 
     pool
-      .query(sqlText, [idToUpdate, eventData.eventName, eventData.date, eventData.time, eventData.address, eventData.notes])
+      .query(sqlText, [
+        idToUpdate,
+        eventData.eventName,
+        eventData.date,
+        eventData.time,
+        eventData.address,
+        eventData.notes,
+      ])
       .then((result) => {
         console.log("ID updated in database", idToUpdate);
         res.sendStatus(200);
@@ -82,8 +96,31 @@ router.put('/:eventId', (req, res) => {
   }
 });
 
+//
+router.put("/update-completion/:eventId", (req, res) => {
+  if (req.isAuthenticated()) {
+    let idToUpdate = req.body.id
+    console.log("Id to Update:", idToUpdate);
+    let eventData = req.body;
+    console.log("Event Data is:", eventData);
+    let sqlText = `UPDATE events 
+  SET 
+  "event_complete" = $2
+  WHERE "id" = $1;`;
+    pool
+      .query(sqlText, [idToUpdate, eventData.eventCompleteStatus])
+      .then((result) => {
+        console.log("ID updated in database", idToUpdate);
+        res.sendStatus(200);
+      })
+      .catch((error) => {
+        console.log(`Error making database query ${sqlText}`, error);
+        res.sendStatus(500);
+      });
+  }
+});
 
-router.delete('/:id', (req, res) => {
+router.delete("/:id", (req, res) => {
   if (req.isAuthenticated()) {
     let idToDelete = req.params.id;
     console.log("idToDelete", idToDelete);

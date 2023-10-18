@@ -35,7 +35,18 @@ function* deleteEvent(action) {
 function* updateEvent(action) {
   console.log(action.payload)
   try {
-    const updateEvent = yield axios.put(`/api/events/${action.payload.id}`, action.payload);
+    const updateEvent = yield axios.put(`/api/events/update-data/${action.payload.id}`, action.payload);
+    console.log("Update Success:", updateEvent)
+    yield put({ type: 'FETCH_EVENT_DATA', payload: action.payload.userId });
+  } catch (error) {
+    console.log("error Updating Event", error);
+  }
+}
+
+function* updateEventComplete(action) {
+  console.log("Update Event Complete Looks like", action.payload)
+  try {
+    const updateEvent = yield axios.put(`/api/events/update-completion/${action.payload.id}`, action.payload);
     console.log("Update Success:", updateEvent)
     yield put({ type: 'FETCH_EVENT_DATA', payload: action.payload.userId });
   } catch (error) {
@@ -48,6 +59,7 @@ function* eventSaga() {
   yield takeLatest('FETCH_EVENT_DATA', fetchEvents);
   yield takeLatest('DELETE_EVENT_DATA', deleteEvent);
   yield takeLatest('UPDATE_EVENT_DATA', updateEvent);
+  yield takeLatest('UPDATE_EVENT_COMPLETE_DATA', updateEventComplete);
 }
 
 export default eventSaga;

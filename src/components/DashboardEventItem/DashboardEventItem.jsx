@@ -12,20 +12,34 @@ import {
 import CheckIcon from "@mui/icons-material/Check";
 import { ListItemContent } from "@mui/joy";
 
-export default function DashboardEventItem(props) {
-    // console.log("event is:", props)
+export default function DashboardEventItem({ event }) {
+  // console.log("event is:", props)
+
+  const dispatch = useDispatch();
+  const user = useSelector((store) => store.user);
 
   const eventCompleteButtonClicked = () => {
-    console.log("clicked", props.event.event_name);
-    function completeButton() {}
+    let eventCompleteStatus = true;
+
+    let eventComplete = {
+      userId: user.id,
+      id: event.id,
+      eventCompleteStatus: eventCompleteStatus,
+    };
+    console.log("Profile Update Object Looks Like", eventComplete);
+
+    dispatch({
+      type: "UPDATE_EVENT_COMPLETE_DATA",
+      payload: eventComplete,
+    });
   };
 
   return (
     <>
-      <ListItem key={props.event.id}>
+      <ListItem key={event.id}>
         <ListItemButton color="primary" variant="plain">
           <ListItemContent>
-            {props.event.event_name} on {props.event.formatted_date}
+            {event.event_name} on {event.formatted_date}
             <Button variant="contained" onClick={eventCompleteButtonClicked}>
               <CheckIcon></CheckIcon>
             </Button>
