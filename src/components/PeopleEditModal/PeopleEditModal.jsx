@@ -2,6 +2,8 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Input from '@mui/joy/Input';
+import { Button } from "@mui/joy";
 
 export default function PeopleEditModal(props) {
 
@@ -51,7 +53,7 @@ export default function PeopleEditModal(props) {
             <div className="modal">
                 <div className="overlay">
                     <div className="modal-content">
-                        <Typography variant="h3" color="#235179">Edit This Person's Details</Typography>
+                        <Typography variant="h4" color="#235179">Edit This Person's Details</Typography>
                         <Box display="flex"
                             flexDirection="column"
                             alignContent="center">
@@ -61,22 +63,28 @@ export default function PeopleEditModal(props) {
                                     alignItems="center" >
                                     <Box display="flex"
                                         flexDirection="column">
-                                        <h4>Name: {props.person.name}</h4>
-                                        <input value={name} placeholder="Name" type="text" onChange={(event) => setName(event.target.value)}></input>
-                                        <h4>Date: {props.person.formatted_date}</h4>
-                                        <input value={date} placeholder="mm/dd/yyyy" type="text" onChange={(event) => setDate(event.target.value)}></input>
-                                        <h4>Company: {props.person.company}</h4>
-                                        <input value={company} placeholder="Company" type="text" onChange={(event) => setCompany(event.target.value)}></input>
-                                        <h4>Phone: {props.person.phone}</h4>
-                                        <input value={phone} placeholder="Phone" type="text" onChange={(event) => setPhone(event.target.value)}></input>
-                                        <h4>Notes:</h4>
-                                        <input value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></input>
-                                        <h4>Follow-Up Date: {props.person.follow_up_date}</h4>
-                                        <input value={followUpDate} placeholder="mm/dd/yyyy" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></input>
+                                        <Typography variant="body1">Name: {props.person.name}</Typography>
+                                        <Input color="primary" variant="outlined" size="md"
+                                            value={name} placeholder="Name" type="text" onChange={(event) => setName(event.target.value)}></Input>
+                                        <Typography>Date: {props.person.formatted_date}</Typography>
+                                        <Input color="primary" variant="outlined" size="md"
+                                        value={date} placeholder="mm/dd/yyyy" type="text" onChange={(event) => setDate(event.target.value)}></Input>
+                                        <Typography>Company: {props.person.company}</Typography>
+                                        <Input color="primary" variant="outlined" size="md"
+                                        value={company} placeholder="Company" type="text" onChange={(event) => setCompany(event.target.value)}></Input>
+                                        <Typography>Phone: {props.person.phone}</Typography>
+                                        <Input color="primary" variant="outlined" size="md"
+                                        value={phone} placeholder="Phone" type="text" onChange={(event) => setPhone(event.target.value)}></Input>
+                                        <Typography>Notes:</Typography>
+                                        <Input color="primary" variant="outlined" size="md"
+                                        value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Input>
+                                        <Typography>Follow-Up Date: {props.person.follow_up_date}</Typography>
+                                        <Input color="primary" variant="outlined" sx={{}}size="md"
+                                        value={followUpDate} placeholder="mm/dd/yyyy" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></Input>
                                     </Box>
                                     <Box>
-                                        <button type='submit'>Save</button>
-                                        <button type='nevermind' onClick={props.onClose}>Nevermind</button>
+                                        <Button variant="soft" color="primary" size="lg" sx={{ mx: .5 }} type='submit'>Save</Button>
+                                        <Button variant="soft" color="danger" size="lg" type='nevermind' type='nevermind' onClick={props.onClose}>Nevermind</Button>
                                     </Box>
                                 </Box>
                             </form>
