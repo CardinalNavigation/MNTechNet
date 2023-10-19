@@ -72,7 +72,7 @@ function Profile() {
                             <input value={passwordConfirm} placeholder="Confirm Password" type="text" onChange={(event) => setPasswordConfirm(event.target.value)}></input>
                         </Box>
                         <Box>
-                            <button type="submit">Save</button>
+                            <button type="submit">Submit</button>
                             <button type="nevermind" onClick={nevermindButton}>Nevermind</button>
                         </Box>
                     </Box>
