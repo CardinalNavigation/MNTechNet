@@ -64,20 +64,28 @@ function CreateEvent() {
             </Box>
             <Box
                 display="flex"
-                justifyContent="center"
                 flexDirection="column"
+                alignContent="center"
                 sx={{ py: 4 }}>
                 <form onSubmit={handleSubmit}>
-                    <input value={eventName} placeholder="Name of Event" type="text" onChange={(event) => setEventName(event.target.value)}></input>
-                    <input value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></input>
-                    <input value={time} placeholder="Time" type="text" onChange={(event) => setTime(event.target.value)}></input>
-                    <input value={address} placeholder="Address" type="text" onChange={(event) => setAddress(event.target.value)}></input>
-                    <input value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></input>
-                    <button type='submit'>Submit</button>
-                    <button type='nevermind'>Nevermind</button>
+                    <Box display="flex"
+                        justifyContent="center">
+                        <Box display="flex"
+                            flexDirection="column">
+                            <input value={eventName} placeholder="Name of Event" type="text" onChange={(event) => setEventName(event.target.value)}></input>
+                            <input value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></input>
+                            <input value={time} placeholder="Time" type="text" onChange={(event) => setTime(event.target.value)}></input>
+                            <input value={address} placeholder="Address" type="text" onChange={(event) => setAddress(event.target.value)}></input>
+                            <input value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></input>
+                        </Box>
+                        <Box>
+                            <button type='submit'>Submit</button>
+                            <button type='nevermind'>Nevermind</button>
+                        </Box>
+                    </Box>
                 </form>
             </Box>
-            
+
         </div>
     )
 }
