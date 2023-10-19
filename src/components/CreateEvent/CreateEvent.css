@@ -1,44 +1,45 @@
 /* Style input fields */
-input[type="text"],
+/* input[type="text"],
 input[type="number"],
 input[type="password"],
 input[type="e-mail"],
 input[type="date"] {
-  /* width: 50%; */
+  width: 50%;
   padding: 20px;
+  margin: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-}
+} */
 
 /* Add a hover effect to input fields */
-input[type="text"]:hover,
+/* input[type="text"]:hover,
 input[type="number"]:hover,
 input[type="password"]:hover,
 input[type="e-mail"]:hover,
 input[type="date"]:hover {
   border-color: #666;
-}
+} */
 
 /* Style input fields when focused */
-input[type="text"]:focus,
+/* input[type="text"]:focus,
 input[type="number"]:focus,
 input[type="password"]:focus,
 input[type="e-mail"]:focus,
 input[type="date"]:focus {
   outline: none;
   border-color: #007bff;
-  /* Blue border color when focused */
+  Blue border color when focused
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
+} */
 
 /* Style placeholders in input fields */
 ::placeholder {
-  color: #888;
+  /* color: #888; */
   font-size: large;
 }
 
 /* Style submit button */
-button[type="submit"] {
+/* button[type="submit"] {
   background-color: #007bff;
   color: #fff;
   padding: 10px 20px;
@@ -46,9 +47,10 @@ button[type="submit"] {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
-}
+  margin: 10px;
+} */
 
-button[type="nevermind"] {
+/* button[type="nevermind"] {
   background-color: hsl(15, 100%, 50%);
   color: #fff;
   padding: 10px 20px;
@@ -56,9 +58,9 @@ button[type="nevermind"] {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
-} 
+} */
 
-button[type="register"] {
+/* button[type="register"] {
   background-color: #EBA432;
   color: #fff;
   padding: 10px 20px;
@@ -66,10 +68,11 @@ button[type="register"] {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
-}
+} */
 
-button[type="submit"]:hover {
+/* button[type="submit"]:hover {
   background-color: #0056b3;
+  
 }
 
 button[type="nevermind"]:hover {
@@ -78,7 +81,7 @@ button[type="nevermind"]:hover {
 
 button[type="register"]:hover {
   background-color: #7c581f;
-}
+} */
 
 .modal {
   display: flex;

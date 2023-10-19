@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -48,7 +48,7 @@ function Profile() {
     }
 
     return (
-        <div>
+        <Paper elevation='6'>
             <Box
                 display="flex"
                 justifyContent="center"
@@ -78,7 +78,7 @@ function Profile() {
                     </Box>
                 </form>
             </Box>
-        </div>
+        </Paper>
     )
 }
 

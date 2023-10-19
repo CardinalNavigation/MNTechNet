@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
@@ -54,7 +54,7 @@ function AddPeople() {
     }
 
     return (
-        <div>
+        <Paper elevation='6'>
             <div>
                 <Box
                     display="flex"
@@ -82,16 +82,16 @@ function AddPeople() {
                             <input value={phone} placeholder="Phone" type="text" onChange={(event) => setPhone(event.target.value)}></input>
                             <input required value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></input>
                             <input required value={followUpDate} placeholder="Follow-up Date" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></input>
-                           <Box>
-                            <button type='submit'>Submit</button>
-                            <button type='nevermind'>Nevermind</button>
+                            <Box>
+                                <button type='submit'>Submit</button>
+                                <button type='nevermind'>Nevermind</button>
                             </Box>
                         </Box>
                     </Box>
                 </form>
 
             </Box>
-        </div>
+        </Paper>
     )
 }
 

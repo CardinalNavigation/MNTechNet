@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import PeopleButtons from "../PeopleButtons/PeopleButtons";
-import { Box, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 
 function People() {
 
@@ -18,14 +18,14 @@ function People() {
     }, []);
 
     return (
-        <>
+        <Paper elevation='6' sx={{ paddingBottom: 10 }}>
             <div>
-            <Box
-                display="flex"
-                justifyContent="center"
-                sx={{ py: 4 }}>
-                <Typography variant="h3" color="#235179">People</Typography>
-            </Box>
+                <Box
+                    display="flex"
+                    justifyContent="center"
+                    sx={{ py: 4 }}>
+                    <Typography variant="h3" color="#235179">People</Typography>
+                </Box>
                 <table>
                     <thead>
                         <tr>
@@ -55,7 +55,7 @@ function People() {
                     </tbody>
                 </table>
             </div>
-        </>
+        </Paper>
     )
 }
 

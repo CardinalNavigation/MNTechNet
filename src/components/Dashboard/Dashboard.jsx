@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Box, List, Typography, ListItem } from "@mui/material";
+import { Box, List, Typography, ListItem, Paper } from "@mui/material";
 import DashboardEventItem from "../DashboardEventItem/DashboardEventItem";
 import DashboardPeopleItem from "../DashboardPeopleItem/DashboardPeopleItem";
 
@@ -72,35 +72,42 @@ function Dashboard() {
 
 
   return (
-    <Box>
-      <Box
-        display="flex"
-        justifyContent="center"
-        sx={{ py: 4 }}>
-        <Typography variant="h3" color="#235179">Dashboard</Typography>
-      </Box>
-      <Box
-        flexDirection="column"
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        sx={{ py: 2 }}>
-        <Typography
-          variant="h4"
-          color="#80AEB6">
-          Upcoming Events
-        </Typography>
-        <List size={'sm'} variant="outlined">
-          {closestThreeEvents.map((event) => (
-            <DashboardEventItem key={event.id} event={event} />
-          ))}
-        </List>
-      </Box>
-      <Box flexDirection="column"
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        sx={{ py: 2 }}>
+    <Paper elevation='6'>
+      <Box>
+        <Box
+          display="flex"
+          justifyContent="center"
+          sx={{ py: 4, backgroundColor: "white" }}
+          marginLeft="25%"
+          marginRight="25%">
+          <Typography variant="h3" color="#235179">Dashboard</Typography>
+        </Box>
+        <Box
+          flexDirection="column"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          sx={{ py: 2, backgroundColor: 'white' }}
+          marginLeft="25%"
+          marginRight="25%">
+          <Typography
+            variant="h4"
+            color="#80AEB6">
+            Upcoming Events
+          </Typography>
+          <List size={'sm'} variant="outlined">
+            {closestThreeEvents.map((event) => (
+              <DashboardEventItem key={event.id} event={event} />
+            ))}
+          </List>
+        </Box>
+        <Box flexDirection="column"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          sx={{ py: 2, backgroundColor: 'white' }}
+          marginLeft="25%"
+          marginRight="25%">
           <Typography
             variant="h4"
             color="#80AEB6">
@@ -111,8 +118,9 @@ function Dashboard() {
               <DashboardPeopleItem key={person.id} person={person} />
             ))}
           </List>
+        </Box>
       </Box>
-    </Box>
+    </Paper>
   );
 }
 

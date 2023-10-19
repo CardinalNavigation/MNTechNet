@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 import "./EventList.css";
 import EventListButtons from "../EventListButtons/EventListButtons";
-import { Box, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 
 function EventList() {
 
@@ -23,6 +23,7 @@ function EventList() {
 
     return (
         <>
+        <Paper elevation='6' sx={{paddingBottom:10}}>
             <div>
             <Box
                 display="flex"
@@ -57,6 +58,7 @@ function EventList() {
                     </tbody>
                 </table>
             </div>
+            </Paper>
         </>
     )
 }
