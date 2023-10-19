@@ -35,18 +35,17 @@ export default function DashboardEventItem({ event }) {
   };
 
   return (
-    <>
+    <Box>
       <ListItem key={event.id}>
-        <ListItemButton  variant="soft">
+        <ListItemButton variant="soft">
           <ListItemContent>
-           <Typography variant="body1">{event.event_name} on {event.formatted_date}
-            <Button variant="contained" size="small" onClick={eventCompleteButtonClicked}>
-              <CheckIcon fontSize="small"></CheckIcon>
-            </Button>
-            </Typography> 
+            <Typography variant="body1">{event.event_name} on {event.formatted_date}</Typography>
           </ListItemContent>
+          <Button variant="contained" size="small" onClick={eventCompleteButtonClicked}>
+            <CheckIcon fontSize="small"></CheckIcon>
+          </Button>
         </ListItemButton>
       </ListItem>
-    </>
+    </Box>
   );
 }

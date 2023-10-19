@@ -61,6 +61,7 @@ function Profile() {
                     <input value={email} placeholder="E-mail Address" type="text" onChange={(event) => setEmail(event.target.value)}></input>
                     <input value={password} placeholder="Password" type="text" onChange={(event) => setPassword(event.target.value)}></input>
                     <input value={passwordConfirm} placeholder="Confirm Password" type="text" onChange={(event) => setPasswordConfirm(event.target.value)}></input>
+
                     <button type="submit">Save</button>
                     <button type="nevermind" onClick={nevermindButton}>Nevermind</button>
                 </form>
