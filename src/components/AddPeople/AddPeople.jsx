@@ -56,12 +56,12 @@ function AddPeople() {
     return (
         <div>
             <div>
-            <Box
-                display="flex"
-                justifyContent="center"
-                sx={{ py: 4 }}>
-                <Typography variant="h3" color="#235179">Add Person</Typography>
-            </Box>
+                <Box
+                    display="flex"
+                    justifyContent="center"
+                    sx={{ py: 4 }}>
+                    <Typography variant="h3" color="#235179">Add Person</Typography>
+                </Box>
             </div>
             <div>
                 <form onSubmit={handleSubmit}>
@@ -72,8 +72,9 @@ function AddPeople() {
                     <input required value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></input>
                     <input required value={followUpDate} placeholder="Follow-up Date" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></input>
                     <button type='submit'>Submit</button>
+                    <button type='nevermind'>Nevermind</button>
                 </form>
-                <button type='nevermind'>Nevermind</button>
+
             </div>
         </div>
     )

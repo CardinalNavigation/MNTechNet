@@ -74,9 +74,10 @@ function CreateEvent() {
                     <input value={address} placeholder="Address" type="text" onChange={(event) => setAddress(event.target.value)}></input>
                     <input value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></input>
                     <button type='submit'>Submit</button>
+                    <button type='nevermind'>Nevermind</button>
                 </form>
             </Box>
-            <button type='nevermind'>Nevermind</button>
+            
         </div>
     )
 }

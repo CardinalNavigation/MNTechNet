@@ -39,10 +39,11 @@ export default function DashboardEventItem({ event }) {
       <ListItem key={event.id}>
         <ListItemButton  variant="soft">
           <ListItemContent>
-            {event.event_name} on {event.formatted_date}
-            <Button variant="contained" onClick={eventCompleteButtonClicked}>
-              <CheckIcon></CheckIcon>
+           <Typography variant="body1">{event.event_name} on {event.formatted_date}
+            <Button variant="contained" size="small" onClick={eventCompleteButtonClicked}>
+              <CheckIcon fontSize="small"></CheckIcon>
             </Button>
+            </Typography> 
           </ListItemContent>
         </ListItemButton>
       </ListItem>

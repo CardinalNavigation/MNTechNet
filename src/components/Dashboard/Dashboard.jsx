@@ -106,7 +106,7 @@ function Dashboard() {
             color="#80AEB6">
             People to Follow-up With
           </Typography>
-          <List display="flex">
+          <List>
             {closestThreePeople.map((person) => (
               <DashboardPeopleItem key={person.id} person={person} />
             ))}
