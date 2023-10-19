@@ -3,6 +3,8 @@ import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import Input from '@mui/joy/Input';
+import { Button } from "@mui/joy";
 
 
 function Profile() {
@@ -59,21 +61,25 @@ function Profile() {
                 display="flex"
                 flexDirection="column"
                 alignContent="center"
-                sx={{ py: 4 }}>
+                sx={{ py: 2 }}>
                 <form onSubmit={handleSubmit}>
                     <Box display="flex"
                         flexDirection="column"
                         alignItems="center">
                         <Box display="flex"
                             flexDirection="column">
-                            <input value={username} placeholder="Username" type="text" onChange={(event) => setUsername(event.target.value)}></input>
-                            <input value={email} placeholder="E-mail Address" type="text" onChange={(event) => setEmail(event.target.value)}></input>
-                            <input value={password} placeholder="Password" type="text" onChange={(event) => setPassword(event.target.value)}></input>
-                            <input value={passwordConfirm} placeholder="Confirm Password" type="text" onChange={(event) => setPasswordConfirm(event.target.value)}></input>
+                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" 
+                             value={username} placeholder="Username" type="text" onChange={(event) => setUsername(event.target.value)}></Input>
+                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" 
+                            value={email} placeholder="E-mail Address" type="text" onChange={(event) => setEmail(event.target.value)}></Input>
+                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" 
+                            value={password} placeholder="Password" type="text" onChange={(event) => setPassword(event.target.value)}></Input>
+                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" 
+                            value={passwordConfirm} placeholder="Confirm Password" type="text" onChange={(event) => setPasswordConfirm(event.target.value)}></Input>
                         </Box>
                         <Box>
-                            <button type="submit">Submit</button>
-                            <button type="nevermind" onClick={nevermindButton}>Nevermind</button>
+                            <Button variant="soft" color="primary" size="lg" sx={{ mx: 2 }} type="submit">Submit</Button>
+                            <Button variant="soft" color="danger" size="lg" type="nevermind" onClick={nevermindButton}>Nevermind</Button>
                         </Box>
                     </Box>
                 </form>

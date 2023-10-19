@@ -33,10 +33,10 @@ input[type="date"]:focus {
 } */
 
 /* Style placeholders in input fields */
-::placeholder {
-  /* color: #888; */
+/* ::placeholder {
+  color: #888;
   font-size: large;
-}
+} */
 
 /* Style submit button */
 /* button[type="submit"] {
@@ -73,13 +73,13 @@ input[type="date"]:focus {
 /* button[type="submit"]:hover {
   background-color: #0056b3;
   
-}
+} */
 
-button[type="nevermind"]:hover {
+/* button[type="nevermind"]:hover {
   background-color: hsl(27, 100%, 35%);
-}
+} */
 
-button[type="register"]:hover {
+/* button[type="register"]:hover {
   background-color: #7c581f;
 } */
 

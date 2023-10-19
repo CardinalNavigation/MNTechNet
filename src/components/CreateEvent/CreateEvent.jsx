@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom"
 
 import './CreateEvent.css'
-import { Box, Button, Paper, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 import Input from '@mui/joy/Input';
+import { Button } from "@mui/joy";
+
 
 
 function CreateEvent() {
@@ -56,6 +58,11 @@ function CreateEvent() {
         history.push('/eventList')
     }
 
+    const nevermindButton = () => {
+        console.log("User Said Nevermind")
+        history.push('/dashboard')
+    }
+
     return (
         <Paper elevation='6'>
             <div>
@@ -83,8 +90,8 @@ function CreateEvent() {
                                 <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Input>
                             </Box>
                             <Box>
-                                <Button variant="solid" size="lg" type='submit'>Submit</Button>
-                                <Button variant="solid"  color="danger" type='nevermind'>Nevermind</Button>     
+                                <Button variant="soft" color="primary" size="lg" sx={{ mx: .5 }} type='submit' >Submit</Button>
+                                <Button variant="soft" color="danger" size="lg" type='nevermind' onClick={nevermindButton}>Nevermind</Button>
                             </Box>
                         </Box>
                     </form>

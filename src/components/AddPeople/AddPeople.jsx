@@ -3,6 +3,8 @@ import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Input from '@mui/joy/Input';
+import { Button } from "@mui/joy";
 
 function AddPeople() {
 
@@ -22,7 +24,7 @@ function AddPeople() {
     const history = useHistory();
 
     const handleSubmit = () => {
-        //event.preventDefault prevents the page from automatically refreshing and deleting our input data
+        //event.preventDefault prevents the page from automatically refreshing and deleting our Input data
         event.preventDefault()
         //eventReducerInput is our package which we are sending to the server
         let peopleReducerInput = {
@@ -53,6 +55,11 @@ function AddPeople() {
         history.push('/people')
     }
 
+    const nevermindButton = () => {
+        console.log("User Said Nevermind")
+        history.push('/dashboard')
+    }
+
     return (
         <Paper elevation='6'>
             <div>
@@ -76,15 +83,21 @@ function AddPeople() {
                         <Box
                             display="flex"
                             flexDirection="column">
-                            <input required value={name} placeholder="Person's Name" type="text" onChange={(event) => setName(event.target.value)}></input>
-                            <input required value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></input>
-                            <input value={company} placeholder="Company" type="text" onChange={(event) => setCompany(event.target.value)}></input>
-                            <input value={phone} placeholder="Phone" type="text" onChange={(event) => setPhone(event.target.value)}></input>
-                            <input required value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></input>
-                            <input required value={followUpDate} placeholder="Follow-up Date" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></input>
+                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" 
+                            required value={name} placeholder="Person's Name" type="text" onChange={(event) => setName(event.target.value)}></Input>
+                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
+                            required value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></Input>
+                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
+                            value={company} placeholder="Company" type="text" onChange={(event) => setCompany(event.target.value)}></Input>
+                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
+                            value={phone} placeholder="Phone" type="text" onChange={(event) => setPhone(event.target.value)}></Input>
+                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
+                            required value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Input>
+                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
+                            required value={followUpDate} placeholder="Follow-up Date" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></Input>
                             <Box>
-                                <button type='submit'>Submit</button>
-                                <button type='nevermind'>Nevermind</button>
+                                <Button variant="soft" color="primary" size="lg" sx={{ mx: 2 }}type='submit'>Submit</Button>
+                                <Button variant="soft" color="danger" size="lg" type='nevermind' onClick={nevermindButton}>Nevermind</Button>
                             </Box>
                         </Box>
                     </Box>
