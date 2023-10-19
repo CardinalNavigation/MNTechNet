@@ -5,7 +5,7 @@ input[type="password"],
 input[type="e-mail"],
 input[type="date"] {
   /* width: 50%; */
-  padding: 8px;
+  padding: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -34,6 +34,7 @@ input[type="date"]:focus {
 /* Style placeholders in input fields */
 ::placeholder {
   color: #888;
+  font-size: large;
 }
 
 /* Style submit button */

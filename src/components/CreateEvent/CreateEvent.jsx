@@ -69,7 +69,8 @@ function CreateEvent() {
                 sx={{ py: 4 }}>
                 <form onSubmit={handleSubmit}>
                     <Box display="flex"
-                        justifyContent="center">
+                        flexDirection="column"
+                        alignItems="center">
                         <Box display="flex"
                             flexDirection="column">
                             <input value={eventName} placeholder="Name of Event" type="text" onChange={(event) => setEventName(event.target.value)}></input>
