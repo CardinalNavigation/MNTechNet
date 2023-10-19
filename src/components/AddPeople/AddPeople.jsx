@@ -63,19 +63,34 @@ function AddPeople() {
                     <Typography variant="h3" color="#235179">Add Person</Typography>
                 </Box>
             </div>
-            <div>
+            <Box
+                display="flex"
+                flexDirection="column"
+                alignContent="center"
+                sx={{ py: 4 }}>
                 <form onSubmit={handleSubmit}>
-                    <input required value={name} placeholder="Person's Name" type="text" onChange={(event) => setName(event.target.value)}></input>
-                    <input required value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></input>
-                    <input value={company} placeholder="Company" type="text" onChange={(event) => setCompany(event.target.value)}></input>
-                    <input value={phone} placeholder="Phone" type="text" onChange={(event) => setPhone(event.target.value)}></input>
-                    <input required value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></input>
-                    <input required value={followUpDate} placeholder="Follow-up Date" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></input>
-                    <button type='submit'>Submit</button>
-                    <button type='nevermind'>Nevermind</button>
+                    <Box
+                        display="flex"
+                        flexDirection="column"
+                        alignItems="center">
+                        <Box
+                            display="flex"
+                            flexDirection="column">
+                            <input required value={name} placeholder="Person's Name" type="text" onChange={(event) => setName(event.target.value)}></input>
+                            <input required value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></input>
+                            <input value={company} placeholder="Company" type="text" onChange={(event) => setCompany(event.target.value)}></input>
+                            <input value={phone} placeholder="Phone" type="text" onChange={(event) => setPhone(event.target.value)}></input>
+                            <input required value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></input>
+                            <input required value={followUpDate} placeholder="Follow-up Date" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></input>
+                           <Box>
+                            <button type='submit'>Submit</button>
+                            <button type='nevermind'>Nevermind</button>
+                            </Box>
+                        </Box>
+                    </Box>
                 </form>
 
-            </div>
+            </Box>
         </div>
     )
 }
