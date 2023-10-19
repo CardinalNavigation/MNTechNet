@@ -21,7 +21,7 @@ function Profile() {
         event.preventDefault()
 
         if ((password === passwordConfirm) && password != '') {
-             setPassword(password)
+            setPassword(password)
         } else {
             alert("Passwords Do Not Match")
         }
@@ -48,27 +48,37 @@ function Profile() {
     }
 
     return (
-        <>
-               <Box
+        <div>
+            <Box
                 display="flex"
                 justifyContent="center"
                 sx={{ py: 4 }}>
-                <Typography variant="h3" color="#235179">People</Typography>
+                <Typography variant="h3" color="#235179">Profile</Typography>
             </Box>
-            <div>
+            <Box
+                display="flex"
+                flexDirection="column"
+                alignContent="center"
+                sx={{ py: 4 }}>
                 <form onSubmit={handleSubmit}>
-                    <input value={username} placeholder="Username" type="text" onChange={(event) => setUsername(event.target.value)}></input>
-                    <input value={email} placeholder="E-mail Address" type="text" onChange={(event) => setEmail(event.target.value)}></input>
-                    <input value={password} placeholder="Password" type="text" onChange={(event) => setPassword(event.target.value)}></input>
-                    <input value={passwordConfirm} placeholder="Confirm Password" type="text" onChange={(event) => setPasswordConfirm(event.target.value)}></input>
-
-                    <button type="submit">Save</button>
-                    <button type="nevermind" onClick={nevermindButton}>Nevermind</button>
+                    <Box display="flex"
+                        flexDirection="column"
+                        alignItems="center">
+                        <Box display="flex"
+                            flexDirection="column">
+                            <input value={username} placeholder="Username" type="text" onChange={(event) => setUsername(event.target.value)}></input>
+                            <input value={email} placeholder="E-mail Address" type="text" onChange={(event) => setEmail(event.target.value)}></input>
+                            <input value={password} placeholder="Password" type="text" onChange={(event) => setPassword(event.target.value)}></input>
+                            <input value={passwordConfirm} placeholder="Confirm Password" type="text" onChange={(event) => setPasswordConfirm(event.target.value)}></input>
+                        </Box>
+                        <Box>
+                            <button type="submit">Save</button>
+                            <button type="nevermind" onClick={nevermindButton}>Nevermind</button>
+                        </Box>
+                    </Box>
                 </form>
-                
-            </div>
-
-        </>
+            </Box>
+        </div>
     )
 }
 
