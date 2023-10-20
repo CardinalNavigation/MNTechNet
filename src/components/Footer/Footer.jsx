@@ -9,7 +9,7 @@ import './Footer.css';
 function Footer() {
   return (
     <footer>
-      &copy; Cardinal Navigation
+      &copy; Matthew Johnson
     </footer>);
 }
 

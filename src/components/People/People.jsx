@@ -34,13 +34,14 @@ function People() {
                     marginLeft="3%"
                     marginRight="3%">
                     <Paper elevation="3">
-                        <Sheet>
+                        <Sheet variant="soft">
                             <Table
                                 color="neutral"
                                 size="lg"
                                 stripe="odd"
                                 variant="soft"
-                                hoverRow>
+                                hoverRow
+                                noWrap>
                                 <thead>
                                     <tr>
                                         <th style={{ textAlign: 'center' }}>Person</th>
@@ -59,7 +60,7 @@ function People() {
                                             <td align="center">{person.name}</td>
                                             <td align="center">{person.formatted_date}</td>
                                             <td align="center">{person.company}</td>
-                                            <td align="center">{person.phone}</td>
+                                            <td align="center" >{person.phone}</td>
                                             <td align="center">{person.notes}</td>
                                             <td align="center" >{person.follow_up_date}</td>
                                             <PeopleButtons person={person} />

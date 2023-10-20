@@ -39,13 +39,14 @@ function EventList() {
                         marginLeft="3%"
                         marginRight="3%">
                         <Paper elevation="3">
-                            <Sheet>
+                            <Sheet variant="soft" >
                                 <Table
                                     color="neutral"
                                     size="lg"
                                     stripe="odd"
                                     variant="soft"
-                                    hoverRow>
+                                    hoverRow
+                                    noWrap>
                                     <thead>
                                         <tr>
                                             <th style={{ textAlign: 'center' }}>Event Name</th>
@@ -53,7 +54,7 @@ function EventList() {
                                             <th style={{ textAlign: 'center' }}>Time</th>
                                             <th style={{ textAlign: 'center' }}>Address</th>
                                             <th style={{ textAlign: 'center' }}>Notes</th>
-                                            <th style={{ textAlign: 'center' }}>Edit</th>
+                                            <th style={{ textAlign: 'center' }}>View/Edit</th>
                                             <th style={{ textAlign: 'center' }}>Delete</th>
                                         </tr>
                                     </thead>

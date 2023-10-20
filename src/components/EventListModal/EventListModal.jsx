@@ -49,48 +49,52 @@ export default function EventListModal(props) {
 
     return (
         <>
-            <Paper>
-                <div className="modal">
-                    <div className="overlay">
-                        <div className="modal-content">
-                            <Typography variant="h3" color="#235179"> Edit This Event </Typography>
+            <div className="modal">
+                <div className="overlay">
+                    <div className="modal-content">
+                        <Paper alignItems="center" elevation="6" sx={{ my: 5 }}>
                             <Box display="flex"
                                 flexDirection="column"
                                 alignContent="center"
-                                sx={{ py: 4 }}>
+                                sx={{ p: 6 }}>
+                                    <Box display="flex" alignItems="center" flexDirection="column">
+                                    <Typography variant="h4" color="#235179"> Edit This Event </Typography>
+                                    </Box>
                                 <form onSubmit={handleSubmit}>
                                     <Box display="flex"
                                         flexDirection="column"
-                                        alignItems="center">
+                                        alignItems="center"
+                                        >
                                         <Box display="flex"
                                             flexDirection="column">
-                                            <Typography variant="h6" color="#80AEB6">Event Name: {props.event.event_name}</Typography>
-                                            <Input color="primary" variant="outlined" size="md" sx={{m: .5}}
+                                            <Typography variant="h6" color="#80AEB6">Event Name:</Typography>
+                                            <Input color="primary" variant="outlined" size="md" sx={{ m: .5 }}
                                                 value={eventName} placeholder="Name of Event" type="text" onChange={(event) => setEventName(event.target.value)}></Input>
-                                            <Typography variant="h6" color="#80AEB6">Date: {props.event.formatted_date}</Typography>
-                                            <Input color="primary" variant="outlined" size="md" sx={{m: .5}}
+                                            <Typography variant="h6" color="#80AEB6">Date:</Typography>
+                                            <Input color="primary" variant="outlined" size="md" sx={{ m: .5 }}
                                                 value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></Input>
                                             <Typography variant="h6" color="#80AEB6">Time: {props.event.time}</Typography>
-                                            <Input color="primary" variant="outlined" size="md" sx={{m: .5}}
+                                            <Input color="primary" variant="outlined" size="md" sx={{ m: .5 }}
                                                 value={time} placeholder="Time" type="text" onChange={(event) => setTime(event.target.value)}></Input>
-                                            <Typography variant="h6" color="#80AEB6">Location: {props.event.address}</Typography>
-                                            <Input color="primary" variant="outlined" size="md" sx={{m: .5}}
+                                            <Typography variant="h6" color="#80AEB6">Location:</Typography>
+                                            <Input color="primary" variant="outlined" size="md" sx={{ m: .5 }}
                                                 value={address} placeholder="Address" type="text" onChange={(event) => setAddress(event.target.value)}></Input>
                                             <Typography variant="h6" color="#80AEB6">Notes:</Typography>
-                                            <Textarea color="primary" variant="outlined" size="md" sx={{m: .5}}
+                                            <Textarea color="primary" variant="outlined" size="md" sx={{ m: .5 }}
                                                 value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Textarea>
                                         </Box>
                                         <Box sx={{ py: 2 }}>
-                                        <Button variant="soft" color="primary" size="lg" sx={{ m: 2 }} type='submit'>Save</Button>
-                                        <Button variant="soft" color="danger" size="lg" type='nevermind'onClick={props.onClose}>Nevermind</Button>
+                                            <Button variant="soft" color="primary" size="lg" sx={{ m: 2 }} type='submit'>Save</Button>
+                                            <Button variant="soft" color="danger" size="lg" type='nevermind' onClick={props.onClose}>Nevermind</Button>
                                         </Box>
                                     </Box>
                                 </form>
                             </Box>
-                        </div>
+                        </Paper>
                     </div>
-                </div >
-            </Paper>
+                </div>
+            </div >
+
         </>
     )
 
