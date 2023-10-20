@@ -83,20 +83,20 @@ function AddPeople() {
                         <Box
                             display="flex"
                             flexDirection="column">
-                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" 
-                            required value={name} placeholder="Person's Name" type="text" onChange={(event) => setName(event.target.value)}></Input>
                             <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
-                            required value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></Input>
+                                required value={name} placeholder="Person's Name" type="text" onChange={(event) => setName(event.target.value)}></Input>
                             <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
-                            value={company} placeholder="Company" type="text" onChange={(event) => setCompany(event.target.value)}></Input>
+                                required value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></Input>
                             <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
-                            value={phone} placeholder="Phone" type="text" onChange={(event) => setPhone(event.target.value)}></Input>
+                                value={company} placeholder="Company" type="text" onChange={(event) => setCompany(event.target.value)}></Input>
                             <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
-                            required value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Input>
+                                value={phone} placeholder="Phone" type="text" onChange={(event) => setPhone(event.target.value)}></Input>
                             <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
-                            required value={followUpDate} placeholder="Follow-up Date" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></Input>
+                                required value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Input>
+                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
+                                required value={followUpDate} placeholder="Follow-up Date" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></Input>
                             <Box>
-                                <Button variant="soft" color="primary" size="lg" sx={{ mx: 2 }}type='submit'>Submit</Button>
+                                <Button variant="soft" color="primary" size="lg" sx={{ mx: 2 }} type='submit'>Submit</Button>
                                 <Button variant="soft" color="danger" size="lg" type='nevermind' onClick={nevermindButton}>Nevermind</Button>
                             </Box>
                         </Box>
