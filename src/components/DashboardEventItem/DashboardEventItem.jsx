@@ -3,14 +3,13 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Box,
-  Button,
   List,
   ListItem,
   ListItemButton,
   Typography,
 } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
-import { ListItemContent } from "@mui/joy";
+import { Button, ListItemContent } from "@mui/joy";
 
 export default function DashboardEventItem({ event }) {
   // console.log("event is:", props)
@@ -35,17 +34,18 @@ export default function DashboardEventItem({ event }) {
   };
 
   return (
-    <Box>
-      <ListItem key={event.id}>
-        <ListItemButton variant="soft">
-          <ListItemContent>
-            <Typography variant="body1">{event.event_name} on {event.formatted_date}</Typography>
-          </ListItemContent>
-          <Button variant="contained" size="small" onClick={eventCompleteButtonClicked}>
-            <CheckIcon fontSize="small"></CheckIcon>
-          </Button>
-        </ListItemButton>
-      </ListItem>
-    </Box>
+    <tr key={event.id}>
+      <td align="center">
+        <Typography variant="body1">{event.event_name}</Typography>
+      </td>
+      <td align="center">
+        <Typography variant="body1">{event.formatted_date}</Typography>
+      </td>
+      <td align="center">
+        <Button variant="solid" size="lg" onClick={eventCompleteButtonClicked}>
+          <CheckIcon fontSize="small"></CheckIcon>
+        </Button>
+      </td>
+    </tr>
   );
 }

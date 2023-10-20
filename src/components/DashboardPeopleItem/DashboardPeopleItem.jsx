@@ -2,9 +2,9 @@ import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
-import { Box, Button, ListItem, ListItemButton, Typography } from "@mui/material";
+import { Box, ListItem, ListItemButton, Typography } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
-import { ListItemContent } from "@mui/joy";
+import { Button, ListItemContent } from "@mui/joy";
 
 export default function DashboardEventItem({ person }) {
   // console.log("person is:", person);
@@ -31,20 +31,18 @@ export default function DashboardEventItem({ person }) {
   };
 
   return (
-    <>
-      <Box>
-        <ListItem key={person.id}>
-          <ListItemButton color="primary" variant="plain">
-            <ListItemContent>
-              <Typography variant="body1">{person.name} follow up on {person.follow_up_date}
-              </Typography>
-            </ListItemContent>
-            <Button variant="contained" size="small" onClick={peopleCompleteButtonClicked}>
-              <CheckIcon fontSize="small"></CheckIcon>
-            </Button>
-          </ListItemButton>
-        </ListItem>
-      </Box>
-    </>
+    <tr key={person.id}>
+      <td align="center">
+        {person.name}
+      </td>
+      <td align="center">
+        {person.follow_up_date}
+      </td>
+      <td align="center">
+        <Button variant="solid" size="lg" onClick={peopleCompleteButtonClicked}>
+          <CheckIcon fontSize="small"></CheckIcon>
+        </Button>
+      </td>
+    </tr >
   );
 }

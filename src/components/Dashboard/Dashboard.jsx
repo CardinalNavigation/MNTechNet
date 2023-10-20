@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Box, List, Typography, ListItem, Paper } from "@mui/material";
 import DashboardEventItem from "../DashboardEventItem/DashboardEventItem";
 import DashboardPeopleItem from "../DashboardPeopleItem/DashboardPeopleItem";
+import { Table } from "@mui/joy";
 
 function Dashboard() {
 
@@ -95,11 +96,23 @@ function Dashboard() {
             color="#80AEB6">
             Upcoming Events
           </Typography>
-          <List size={'sm'} variant="outlined">
-            {closestThreeEvents.map((event) => (
-              <DashboardEventItem key={event.id} event={event} />
-            ))}
-          </List>
+          <Table
+            borderAxis="none"
+            variant="soft"
+            hoverRow>
+            <thead >
+              <tr>
+                <th style={{ textAlign: 'center' }}>Event</th>
+                <th style={{ textAlign: 'center' }}>Event Date</th>
+                <th style={{ textAlign: 'center' }}>Mark Complete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {closestThreeEvents.map((event) => (
+                <DashboardEventItem key={event.id} event={event} />
+              ))}
+            </tbody>
+          </Table>
         </Box>
         <Box flexDirection="column"
           display="flex"
@@ -113,11 +126,22 @@ function Dashboard() {
             color="#80AEB6">
             People to Follow-up With
           </Typography>
-          <List>
+          <Table    borderAxis="none"
+            variant="soft"
+            hoverRow>
+            <thead >
+              <tr>
+                <th style={{ textAlign: 'center' }}>Person</th>
+                <th style={{ textAlign: 'center' }}>Follow-Up Date</th>
+                <th style={{ textAlign: 'center' }}>Mark Complete</th>
+              </tr>
+            </thead>
+          <tbody>
             {closestThreePeople.map((person) => (
               <DashboardPeopleItem key={person.id} person={person} />
             ))}
-          </List>
+          </tbody>
+          </Table>
         </Box>
       </Box>
     </Paper>
