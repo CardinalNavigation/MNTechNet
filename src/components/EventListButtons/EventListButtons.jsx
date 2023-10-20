@@ -33,7 +33,7 @@ function EventListButtons(props) {
 
     return (
         <>
-            <td align="center"><Button variant="outlined" color="neutral" onClick={() => setShowModal(true)}>
+            <td align="center"><Button variant="outlined" color="neutral" size="md" onClick={() => setShowModal(true)}>
                 ✏️
             </Button></td>
             {showModal && createPortal(
@@ -42,7 +42,7 @@ function EventListButtons(props) {
                 document.body
             )}
 
-            <td align="center"><Button variant="soft" color="danger" onClick={deleteEvent}>❌</Button></td>
+            <td align="center"><Button variant="soft" color="danger" size="md" onClick={deleteEvent}>❌</Button></td>
         </>
     )
 }

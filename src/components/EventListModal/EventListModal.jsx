@@ -65,19 +65,19 @@ export default function EventListModal(props) {
                                         <Box display="flex"
                                             flexDirection="column">
                                             <Typography variant="h6" color="#80AEB6">Event Name: {props.event.event_name}</Typography>
-                                            <Input color="primary" variant="outlined" size="md"
+                                            <Input color="primary" variant="outlined" size="md" sx={{m: .5}}
                                                 value={eventName} placeholder="Name of Event" type="text" onChange={(event) => setEventName(event.target.value)}></Input>
                                             <Typography variant="h6" color="#80AEB6">Date: {props.event.formatted_date}</Typography>
-                                            <Input color="primary" variant="outlined" size="md"
+                                            <Input color="primary" variant="outlined" size="md" sx={{m: .5}}
                                                 value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></Input>
                                             <Typography variant="h6" color="#80AEB6">Time: {props.event.time}</Typography>
-                                            <Input color="primary" variant="outlined" size="md"
+                                            <Input color="primary" variant="outlined" size="md" sx={{m: .5}}
                                                 value={time} placeholder="Time" type="text" onChange={(event) => setTime(event.target.value)}></Input>
                                             <Typography variant="h6" color="#80AEB6">Location: {props.event.address}</Typography>
-                                            <Input color="primary" variant="outlined" size="md"
+                                            <Input color="primary" variant="outlined" size="md" sx={{m: .5}}
                                                 value={address} placeholder="Address" type="text" onChange={(event) => setAddress(event.target.value)}></Input>
                                             <Typography variant="h6" color="#80AEB6">Notes:</Typography>
-                                            <Textarea color="primary" variant="outlined" size="md"
+                                            <Textarea color="primary" variant="outlined" size="md" sx={{m: .5}}
                                                 value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Textarea>
                                         </Box>
                                         <Box sx={{ py: 2 }}>

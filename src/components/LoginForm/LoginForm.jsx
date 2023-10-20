@@ -76,7 +76,7 @@ function LoginForm() {
             <Button type="submit" name="submit" size="lg" sx={{ my: 1 }} value="Log In">
               Log In
             </Button>
-            <Button variant="solid" color="warning" size="lg" onClick={() => {
+            <Button variant="solid" color="success" size="lg" onClick={() => {
               history.push('/registration');
             }}
             >

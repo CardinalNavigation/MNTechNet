@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Box, List, Typography, ListItem, Paper } from "@mui/material";
 import DashboardEventItem from "../DashboardEventItem/DashboardEventItem";
 import DashboardPeopleItem from "../DashboardPeopleItem/DashboardPeopleItem";
-import { Table } from "@mui/joy";
+import { Sheet, Table } from "@mui/joy";
 
 function Dashboard() {
 
@@ -98,23 +98,25 @@ function Dashboard() {
               textAlign="center">
               Upcoming Events
             </Typography>
-            <Table
-              borderAxis="none"
-              variant="soft"
-              hoverRow>
-              <thead >
-                <tr>
-                  <th style={{ textAlign: 'center' }}>Event</th>
-                  <th style={{ textAlign: 'center' }}>Event Date</th>
-                  <th style={{ textAlign: 'center' }}>Mark Complete</th>
-                </tr>
-              </thead>
-              <tbody>
-                {closestThreeEvents.map((event) => (
-                  <DashboardEventItem key={event.id} event={event} />
-                ))}
-              </tbody>
-            </Table>
+            <Sheet>
+              <Table
+                borderAxis="none"
+                variant="soft"
+                hoverRow>
+                <thead >
+                  <tr>
+                    <th style={{ textAlign: 'center' }}>Event</th>
+                    <th style={{ textAlign: 'center' }}>Event Date</th>
+                    <th style={{ textAlign: 'center' }}>Mark Complete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {closestThreeEvents.map((event) => (
+                    <DashboardEventItem key={event.id} event={event} />
+                  ))}
+                </tbody>
+              </Table>
+            </Sheet>
           </Paper>
         </Box>
         <Box flexDirection="column"
@@ -131,22 +133,24 @@ function Dashboard() {
               textAlign="center">
               People to Follow-up With
             </Typography>
-            <Table borderAxis="none"
-              variant="soft"
-              hoverRow>
-              <thead >
-                <tr>
-                  <th style={{ textAlign: 'center' }}>Person</th>
-                  <th style={{ textAlign: 'center' }}>Follow-Up Date</th>
-                  <th style={{ textAlign: 'center' }}>Mark Complete</th>
-                </tr>
-              </thead>
-              <tbody>
-                {closestThreePeople.map((person) => (
-                  <DashboardPeopleItem key={person.id} person={person} />
-                ))}
-              </tbody>
-            </Table>
+            <Sheet>
+              <Table borderAxis="none"
+                variant="soft"
+                hoverRow>
+                <thead >
+                  <tr>
+                    <th style={{ textAlign: 'center' }}>Person</th>
+                    <th style={{ textAlign: 'center' }}>Follow-Up Date</th>
+                    <th style={{ textAlign: 'center' }}>Mark Complete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {closestThreePeople.map((person) => (
+                    <DashboardPeopleItem key={person.id} person={person} />
+                  ))}
+                </tbody>
+              </Table>
+            </Sheet>
           </Paper>
         </Box>
       </Box>

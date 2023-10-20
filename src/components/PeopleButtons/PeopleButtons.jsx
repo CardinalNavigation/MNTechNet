@@ -32,7 +32,7 @@ function PeopleButtons(props) {
     return (
         <>
             <td align="center">
-                <Button variant="outlined" color="neutral"
+                <Button variant="outlined" color="neutral" size="md"
                     onClick={() => setShowModal(true)}>
                     ✏️
                 </Button></td>
@@ -41,7 +41,7 @@ function PeopleButtons(props) {
                     person={person} />,
                 document.body
             )}
-            <td align="center" ><Button variant="soft" color="danger" onClick={deletePerson}>❌</Button></td>
+            <td align="center" ><Button variant="soft" color="danger" size="md" onClick={deletePerson}>❌</Button></td>
         </>
     )
 }
