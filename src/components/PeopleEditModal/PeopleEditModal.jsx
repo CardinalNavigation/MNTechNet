@@ -49,12 +49,12 @@ export default function PeopleEditModal(props) {
 
 
     const handleHover = () => {
-        setName('Test');
-        setDate("Test")
-        setCompany("Test")
-        setPhone('Test')
-        setNotes('Test')
-        setFollowUpDate('Test')
+        setName('Josh Kelmens');
+        setDate("12/01/23")
+        setCompany("New Product Ltd.")
+        setPhone('777-777-7777')
+        setNotes('Make sure you send him a message on linkedIn')
+        setFollowUpDate('1/15/24')
     };
 
     return (

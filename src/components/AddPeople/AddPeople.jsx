@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Input from '@mui/joy/Input';
-import { Button } from "@mui/joy";
-
+import { Button, Textarea } from "@mui/joy";
+import AddReactionTwoToneIcon from '@mui/icons-material/AddReactionTwoTone';
 function AddPeople() {
 
 
@@ -60,6 +60,15 @@ function AddPeople() {
         history.push('/dashboard')
     }
 
+    const handleHover = () => {
+        setName('Josh Kelmens');
+        setDate("12-01-23")
+        setCompany("New Product Ltd.")
+        setPhone('777-777-7777')
+        setNotes('He let me know he is fairly busy right now, and not hiring, but to touch base with him in a month and a half.')
+        setFollowUpDate('2/28/24')
+    };
+
     return (
         <Paper elevation='6'>
             <div>
@@ -91,12 +100,12 @@ function AddPeople() {
                                 value={company} placeholder="Company" type="text" onChange={(event) => setCompany(event.target.value)}></Input>
                             <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
                                 value={phone} placeholder="Phone" type="text" onChange={(event) => setPhone(event.target.value)}></Input>
-                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
-                                required value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Input>
-                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
+                            <Textarea color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
+                                required value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Textarea>
+                            <Input onMouseEnter={handleHover}color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
                                 required value={followUpDate} placeholder="Follow-up Date" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></Input>
                             <Box>
-                                <Button variant="soft" color="primary" size="lg" sx={{ mx: 2 }} type='submit'>Submit</Button>
+                                <Button variant="soft" color="primary" size="lg" sx={{ mx: 2 }} type='submit'>Submit  <AddReactionTwoToneIcon></AddReactionTwoToneIcon></Button>
                                 <Button variant="soft" color="danger" size="lg" type='nevermind' onClick={nevermindButton}>Nevermind</Button>
                             </Box>
                         </Box>

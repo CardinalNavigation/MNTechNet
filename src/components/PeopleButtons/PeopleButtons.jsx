@@ -6,6 +6,8 @@ import { useState } from "react";
 
 import PeopleEditModal from "../PeopleEditModal/PeopleEditModal"
 import { Button } from "@mui/joy";
+import EditNoteRoundedIcon from '@mui/icons-material/EditNoteRounded';
+import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
 
 function PeopleButtons(props) {
 
@@ -32,16 +34,20 @@ function PeopleButtons(props) {
     return (
         <>
             <td align="center">
-                <Button variant="outlined" color="neutral" size="md"
+                <Button variant="soft" color="warning" size="md"
                     onClick={() => setShowModal(true)}>
-                    ✏️
+                    <EditNoteRoundedIcon></EditNoteRoundedIcon>
                 </Button></td>
             {showModal && createPortal(
                 <PeopleEditModal onClose={() => setShowModal(false)}
                     person={person} />,
                 document.body
             )}
-            <td align="center" ><Button variant="soft" color="danger" size="md" onClick={deletePerson}>❌</Button></td>
+            <td align="center" >
+                <Button variant="soft" color="danger" size="md" onClick={deletePerson}>
+                    <ClearOutlinedIcon></ClearOutlinedIcon>
+                </Button>
+            </td>
         </>
     )
 }

@@ -7,6 +7,7 @@ import './CreateEvent.css'
 import { Box, Paper, Typography } from "@mui/material";
 import Input from '@mui/joy/Input';
 import { Button } from "@mui/joy";
+import EventAvailableTwoToneIcon from '@mui/icons-material/EventAvailableTwoTone';
 
 
 
@@ -92,7 +93,7 @@ function CreateEvent() {
                                     <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Input>
                                 </Box>
                                 <Box>
-                                    <Button variant="soft" color="primary" size="lg" sx={{ mx: .5 }} type='submit' >Submit</Button>
+                                    <Button variant="soft" color="primary" size="lg" sx={{ mx: .5 }} type='submit'>Submit<EventAvailableTwoToneIcon></EventAvailableTwoToneIcon></Button>
                                     <Button variant="soft" color="danger" size="lg" type='nevermind' onClick={nevermindButton}>Nevermind</Button>
                                 </Box>
                             </Box>

@@ -2,7 +2,6 @@ import React from "react";
 import { createPortal } from 'react-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-// import EventListModal from "../EventListModal/EventListModal"
 
 import "./EventList.css";
 import EventListButtons from "../EventListButtons/EventListButtons";

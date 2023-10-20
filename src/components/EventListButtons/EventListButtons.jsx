@@ -6,6 +6,8 @@ import { useState } from "react";
 
 import EventListModal from "../EventListModal/EventListModal"
 import { Button } from "@mui/joy";
+import EditNoteRoundedIcon from '@mui/icons-material/EditNoteRounded';
+import ClearOutlinedIcon from '@mui/icons-material/ClearOutlined';
 
 function EventListButtons(props) {
 
@@ -33,8 +35,8 @@ function EventListButtons(props) {
 
     return (
         <>
-            <td align="center"><Button variant="outlined" color="neutral" size="md" onClick={() => setShowModal(true)}>
-                ✏️
+            <td align="center"><Button variant="soft" color="warning" size="md" onClick={() => setShowModal(true)}>
+                <EditNoteRoundedIcon></EditNoteRoundedIcon>
             </Button></td>
             {showModal && createPortal(
                 <EventListModal onClose={() => setShowModal(false)}
@@ -42,7 +44,11 @@ function EventListButtons(props) {
                 document.body
             )}
 
-            <td align="center"><Button variant="soft" color="danger" size="md" onClick={deleteEvent}>❌</Button></td>
+            <td align="center">
+                <Button variant="soft" color="danger" size="md" onClick={deleteEvent}>
+                    <ClearOutlinedIcon></ClearOutlinedIcon>
+                </Button>
+            </td>
         </>
     )
 }
