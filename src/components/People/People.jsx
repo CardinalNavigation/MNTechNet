@@ -41,7 +41,8 @@ function People() {
                                 stripe="odd"
                                 variant="soft"
                                 hoverRow
-                                noWrap>
+                                noWrap
+                                >
                                 <thead>
                                     <tr>
                                         <th style={{ textAlign: 'center' }}>Person</th>
