@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import { useState } from "react";
 
 import EventListModal from "../EventListModal/EventListModal"
+import { Button } from "@mui/joy";
 
 function EventListButtons(props) {
 
@@ -20,7 +21,7 @@ function EventListButtons(props) {
     let event = props.event
 
     const deleteEvent = () => {
-        console.log("Event ID is:", props.event.id, "The button is working",  "UserID is: ",userId)
+        console.log("Event ID is:", props.event.id, "The button is working", "UserID is: ", userId)
         dispatch({
             type: "DELETE_EVENT_DATA",
             payload: {
@@ -32,16 +33,16 @@ function EventListButtons(props) {
 
     return (
         <>
-            <td><button onClick={() => setShowModal(true)}>
+            <td align="center"><Button variant="outlined" color="neutral" onClick={() => setShowModal(true)}>
                 ✏️
-            </button></td>
+            </Button></td>
             {showModal && createPortal(
                 <EventListModal onClose={() => setShowModal(false)}
                     event={event} />,
                 document.body
             )}
 
-            <td><button onClick={deleteEvent}>❌</button></td>
+            <td align="center"><Button variant="soft" color="danger" onClick={deleteEvent}>❌</Button></td>
         </>
     )
 }

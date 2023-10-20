@@ -78,7 +78,7 @@ function Dashboard() {
         <Box
           display="flex"
           justifyContent="center"
-          sx={{ py: 4, backgroundColor: "white" }}
+          sx={{ py: 2, backgroundColor: "white", paddingTop: "36px" }}
           marginLeft="25%"
           marginRight="25%">
           <Typography variant="h3" color="#235179">Dashboard</Typography>
@@ -91,57 +91,63 @@ function Dashboard() {
           sx={{ py: 2, backgroundColor: 'white' }}
           marginLeft="25%"
           marginRight="25%">
-          <Typography
-            variant="h4"
-            color="#80AEB6">
-            Upcoming Events
-          </Typography>
-          <Table
-            borderAxis="none"
-            variant="soft"
-            hoverRow>
-            <thead >
-              <tr>
-                <th style={{ textAlign: 'center' }}>Event</th>
-                <th style={{ textAlign: 'center' }}>Event Date</th>
-                <th style={{ textAlign: 'center' }}>Mark Complete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {closestThreeEvents.map((event) => (
-                <DashboardEventItem key={event.id} event={event} />
-              ))}
-            </tbody>
-          </Table>
+          <Paper elevation="3">
+            <Typography
+              variant="h4"
+              color="#80AEB6"
+              textAlign="center">
+              Upcoming Events
+            </Typography>
+            <Table
+              borderAxis="none"
+              variant="soft"
+              hoverRow>
+              <thead >
+                <tr>
+                  <th style={{ textAlign: 'center' }}>Event</th>
+                  <th style={{ textAlign: 'center' }}>Event Date</th>
+                  <th style={{ textAlign: 'center' }}>Mark Complete</th>
+                </tr>
+              </thead>
+              <tbody>
+                {closestThreeEvents.map((event) => (
+                  <DashboardEventItem key={event.id} event={event} />
+                ))}
+              </tbody>
+            </Table>
+          </Paper>
         </Box>
         <Box flexDirection="column"
           display="flex"
           justifyContent="center"
           alignItems="center"
-          sx={{ py: 2, backgroundColor: 'white' }}
+          sx={{ py: 2, backgroundColor: 'white', paddingBottom: "36px" }}
           marginLeft="25%"
           marginRight="25%">
-          <Typography
-            variant="h4"
-            color="#80AEB6">
-            People to Follow-up With
-          </Typography>
-          <Table    borderAxis="none"
-            variant="soft"
-            hoverRow>
-            <thead >
-              <tr>
-                <th style={{ textAlign: 'center' }}>Person</th>
-                <th style={{ textAlign: 'center' }}>Follow-Up Date</th>
-                <th style={{ textAlign: 'center' }}>Mark Complete</th>
-              </tr>
-            </thead>
-          <tbody>
-            {closestThreePeople.map((person) => (
-              <DashboardPeopleItem key={person.id} person={person} />
-            ))}
-          </tbody>
-          </Table>
+          <Paper elevation="3">
+            <Typography
+              variant="h4"
+              color="#80AEB6"
+              textAlign="center">
+              People to Follow-up With
+            </Typography>
+            <Table borderAxis="none"
+              variant="soft"
+              hoverRow>
+              <thead >
+                <tr>
+                  <th style={{ textAlign: 'center' }}>Person</th>
+                  <th style={{ textAlign: 'center' }}>Follow-Up Date</th>
+                  <th style={{ textAlign: 'center' }}>Mark Complete</th>
+                </tr>
+              </thead>
+              <tbody>
+                {closestThreePeople.map((person) => (
+                  <DashboardPeopleItem key={person.id} person={person} />
+                ))}
+              </tbody>
+            </Table>
+          </Paper>
         </Box>
       </Box>
     </Paper>

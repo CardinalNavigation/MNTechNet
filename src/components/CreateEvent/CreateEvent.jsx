@@ -65,39 +65,40 @@ function CreateEvent() {
 
     return (
         <Paper elevation='6'>
-            <div>
+            <Box>
                 <Box
                     display="flex"
                     justifyContent="center"
-                    sx={{ py: 4 }}>
+                    sx={{ py: 2, paddingTop: "32px" }}>
                     <Typography variant="h3" color="#235179">Create Event</Typography>
                 </Box>
-                <Box
-                    display="flex"
-                    flexDirection="column"
-                    alignContent="center"
-                    sx={{ py: 4 }}>
-                    <form onSubmit={handleSubmit}>
-                        <Box display="flex"
-                            flexDirection="column"
-                            alignItems="center">
+                    <Box
+                        display="flex"
+                        flexDirection="column"
+                        alignContent="center"
+                        marginLeft="25%"
+                        marginRight="25%"
+                        sx={{ py: 4 }}>
+                        <form onSubmit={handleSubmit}>
                             <Box display="flex"
-                                flexDirection="column">
-                                <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={eventName} placeholder="Name of Event" type="text" onChange={(event) => setEventName(event.target.value)}></Input>
-                                <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></Input>
-                                <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={time} placeholder="Time" type="text" onChange={(event) => setTime(event.target.value)}></Input>
-                                <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={address} placeholder="Address" type="text" onChange={(event) => setAddress(event.target.value)}></Input>
-                                <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Input>
+                                flexDirection="column"
+                                alignItems="center">
+                                <Box display="flex"
+                                    flexDirection="column">
+                                    <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={eventName} placeholder="Name of Event" type="text" onChange={(event) => setEventName(event.target.value)}></Input>
+                                    <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></Input>
+                                    <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={time} placeholder="Time" type="text" onChange={(event) => setTime(event.target.value)}></Input>
+                                    <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={address} placeholder="Address" type="text" onChange={(event) => setAddress(event.target.value)}></Input>
+                                    <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Input>
+                                </Box>
+                                <Box>
+                                    <Button variant="soft" color="primary" size="lg" sx={{ mx: .5 }} type='submit' >Submit</Button>
+                                    <Button variant="soft" color="danger" size="lg" type='nevermind' onClick={nevermindButton}>Nevermind</Button>
+                                </Box>
                             </Box>
-                            <Box>
-                                <Button variant="soft" color="primary" size="lg" sx={{ mx: .5 }} type='submit' >Submit</Button>
-                                <Button variant="soft" color="danger" size="lg" type='nevermind' onClick={nevermindButton}>Nevermind</Button>
-                            </Box>
-                        </Box>
-                    </form>
-                </Box>
-
-            </div>
+                        </form>
+                    </Box>
+            </Box>
         </Paper>
     )
 }
