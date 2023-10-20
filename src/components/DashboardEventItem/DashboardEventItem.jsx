@@ -42,8 +42,8 @@ export default function DashboardEventItem({ event }) {
         <Typography variant="body1">{event.formatted_date}</Typography>
       </td>
       <td align="center">
-        <Button variant="solid" size="lg" onClick={eventCompleteButtonClicked}>
-          <CheckIcon fontSize="small"></CheckIcon>
+        <Button variant="solid" size="medium" onClick={eventCompleteButtonClicked}>
+          <CheckIcon fontSize="medium"></CheckIcon>
         </Button>
       </td>
     </tr>

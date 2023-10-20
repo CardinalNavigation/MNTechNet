@@ -39,8 +39,8 @@ export default function DashboardEventItem({ person }) {
         {person.follow_up_date}
       </td>
       <td align="center">
-        <Button variant="solid" size="lg" onClick={peopleCompleteButtonClicked}>
-          <CheckIcon fontSize="small"></CheckIcon>
+        <Button variant="solid" size="medium" onClick={peopleCompleteButtonClicked}>
+          <CheckIcon fontSize="medium"></CheckIcon>
         </Button>
       </td>
     </tr >
