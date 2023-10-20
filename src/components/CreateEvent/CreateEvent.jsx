@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom"
 import './CreateEvent.css'
 import { Box, Paper, Typography } from "@mui/material";
 import Input from '@mui/joy/Input';
-import { Button } from "@mui/joy";
+import { Button, Textarea } from "@mui/joy";
 import EventAvailableTwoToneIcon from '@mui/icons-material/EventAvailableTwoTone';
 
 
@@ -63,6 +63,14 @@ function CreateEvent() {
         console.log("User Said Nevermind")
         history.push('/dashboard')
     }
+    const handleHover = () => {
+        setEventName('Tech On Tap');
+        setDate("10/30/23")
+        setTime("4:00pm")
+        setAddress('123 Fake St. St. Paul MN, 55444')
+        setNotes("I know at least 3 people that are going, let's plan on meeting 4 more")
+    };
+
 
     return (
         <Paper elevation='6'>
@@ -73,32 +81,32 @@ function CreateEvent() {
                     sx={{ py: 2, paddingTop: "32px" }}>
                     <Typography variant="h3" color="#235179">Create Event</Typography>
                 </Box>
-                    <Box
-                        display="flex"
-                        flexDirection="column"
-                        alignContent="center"
-                        marginLeft="25%"
-                        marginRight="25%"
-                        sx={{ py: 4 }}>
-                        <form onSubmit={handleSubmit}>
+                <Box
+                    display="flex"
+                    flexDirection="column"
+                    alignContent="center"
+                    marginLeft="25%"
+                    marginRight="25%"
+                    sx={{ py: 4 }}>
+                    <form onSubmit={handleSubmit}>
+                        <Box display="flex"
+                            flexDirection="column"
+                            alignItems="center">
                             <Box display="flex"
-                                flexDirection="column"
-                                alignItems="center">
-                                <Box display="flex"
-                                    flexDirection="column">
-                                    <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={eventName} placeholder="Name of Event" type="text" onChange={(event) => setEventName(event.target.value)}></Input>
-                                    <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></Input>
-                                    <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={time} placeholder="Time" type="text" onChange={(event) => setTime(event.target.value)}></Input>
-                                    <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={address} placeholder="Address" type="text" onChange={(event) => setAddress(event.target.value)}></Input>
-                                    <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Input>
-                                </Box>
-                                <Box>
-                                    <Button variant="soft" color="primary" size="lg" sx={{ mx: .5 }} type='submit'>Submit<EventAvailableTwoToneIcon></EventAvailableTwoToneIcon></Button>
-                                    <Button variant="soft" color="danger" size="lg" type='nevermind' onClick={nevermindButton}>Nevermind</Button>
-                                </Box>
+                                flexDirection="column">
+                                <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={eventName} placeholder="Name of Event" type="text" onChange={(event) => setEventName(event.target.value)}></Input>
+                                <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></Input>
+                                <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={time} placeholder="Time" type="text" onChange={(event) => setTime(event.target.value)}></Input>
+                                <Textarea color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={address} placeholder="Address" type="text" onChange={(event) => setAddress(event.target.value)}></Textarea>
+                                <Textarea onMouseEnter={handleHover} color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Textarea>
                             </Box>
-                        </form>
-                    </Box>
+                            <Box>
+                                <Button variant="soft" color="primary" size="lg" sx={{ mx: .5 }} type='submit'>Submit<EventAvailableTwoToneIcon></EventAvailableTwoToneIcon></Button>
+                                <Button variant="soft" color="danger" size="lg" type='nevermind' onClick={nevermindButton}>Nevermind</Button>
+                            </Box>
+                        </Box>
+                    </form>
+                </Box>
             </Box>
         </Paper>
     )
