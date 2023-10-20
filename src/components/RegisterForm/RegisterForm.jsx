@@ -1,5 +1,7 @@
+import { Button, Input } from '@mui/joy';
+import { Box, Paper, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 
@@ -26,64 +28,77 @@ function RegisterForm() {
   }; // end registerUser
 
   //This will bring our user back to our landing page to login or register
-  const nevermindButton=()=>{
-      console.log("User Said Nevermind")
-      history.push('/login')
+  const nevermindButton = () => {
+    console.log("User Said Nevermind")
+    history.push('/login')
   }
 
   return (
-    <form className="formPanel" onSubmit={registerUser}>
-      <h2>Welcome to MNTechNet!</h2>
-      <h4>Register Below, and happy networking!</h4>
-      
-      {errors.registrationMessage && (
-        <h3 className="alert" role="alert">
-          {errors.registrationMessage}
-        </h3>
-      )}
-      <div>
-        <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            required
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="password">
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="e-mail">
-          E-mail:
-          <input
-            type="e-mail"
-            name="e-mail"
-            value={EMail}
-            required
-            onChange={(event) => setEMail(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
-      </div>
-      <div>
-      <button className="btn" type="nevermind" onClick={nevermindButton}>Nevermind</button>
-      </div>
-    </form>
+    <Paper>
+      <Box
+        component="form"
+        className="formPanel"
+        onSubmit={registerUser}>
+        <Box
+          display="flex"
+          justifyContent="center"
+          flexDirection="column"
+          alignItems="center"
+          sx={{ py: 2 }}>
+          <Typography variant='h3' color="#235179">Welcome to MNTechNet!</Typography>
+          <Typography variant='h6' color="#80AEB6">Register Below, and happy networking!</Typography>
+          {errors.registrationMessage && (
+            <Typography variant='body1' className="alert" role="alert">
+              {errors.registrationMessage}
+            </Typography>
+          )}
+        </Box>
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignContent="center"
+          sx={{ py: 2 }}>
+          <Box display="flex"
+            flexDirection="column">
+            <label htmlFor="username">
+              {/* Username: */}
+              <Input
+                type="text"
+                placeholder="Username"
+                sx={{ my: 1 }} 
+                value={username}
+                required
+                onChange={(event) => setUsername(event.target.value)}
+              />
+            </label>
+            <label htmlFor="password">
+              {/* Password: */}
+              <Input
+                type="password"
+                placeholder="Password"
+                sx={{ my: 1 }} 
+                value={password}
+                required
+                onChange={(event) => setPassword(event.target.value)}
+              />
+            </label>
+            <label htmlFor="e-mail">
+              {/* E-mail: */}
+              <Input
+                type="e-mail"
+                placeholder="E-mail"
+                sx={{ my: 1 }} 
+                value={EMail}
+                required
+                onChange={(event) => setEMail(event.target.value)}
+              />
+            </label>
+            <Button variant="solid" color="primary" sx={{ my: 1 }} type="submit" name="submit"  size="lg" value="Register">Register</Button>
+            <Button variant="solid" color="danger" type="nevermind" size="lg" onClick={nevermindButton}>Nevermind</Button>
+          </Box>
+        </Box>
+      </Box>
+    </Paper>
   );
 }
 
