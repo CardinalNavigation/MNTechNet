@@ -53,7 +53,7 @@ export default function PeopleEditModal(props) {
             <div className="modal">
                 <div className="overlay">
                     <div className="modal-content">
-                        <Typography variant="h4" color="#235179">Edit This Person's Details</Typography>
+                        <Typography variant="h4" color="#235179">Edit Details</Typography>
                         <Box display="flex"
                             flexDirection="column"
                             alignContent="center">
@@ -68,23 +68,23 @@ export default function PeopleEditModal(props) {
                                             value={name} placeholder="Name" type="text" onChange={(event) => setName(event.target.value)}></Input>
                                         <Typography variant="h6" color="#80AEB6">Date: {props.person.formatted_date}</Typography>
                                         <Input color="primary" variant="outlined" size="md"
-                                        value={date} placeholder="mm/dd/yyyy" type="text" onChange={(event) => setDate(event.target.value)}></Input>
+                                            value={date} placeholder="mm/dd/yyyy" type="text" onChange={(event) => setDate(event.target.value)}></Input>
                                         <Typography variant="h6" color="#80AEB6">Company: {props.person.company}</Typography>
                                         <Input color="primary" variant="outlined" size="md"
-                                        value={company} placeholder="Company" type="text" onChange={(event) => setCompany(event.target.value)}></Input>
+                                            value={company} placeholder="Company" type="text" onChange={(event) => setCompany(event.target.value)}></Input>
                                         <Typography variant="h6" color="#80AEB6">Phone: {props.person.phone}</Typography>
                                         <Input color="primary" variant="outlined" size="md"
-                                        value={phone} placeholder="Phone" type="text" onChange={(event) => setPhone(event.target.value)}></Input>
+                                            value={phone} placeholder="Phone" type="text" onChange={(event) => setPhone(event.target.value)}></Input>
                                         <Typography variant="h6" color="#80AEB6">Notes:</Typography>
                                         <Textarea color="primary" variant="outlined" size="md"
-                                        value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Textarea>
+                                            value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Textarea>
                                         <Typography variant="h6" color="#80AEB6">Follow-Up Date: {props.person.follow_up_date}</Typography>
-                                        <Input color="primary" variant="outlined" sx={{}}size="md"
-                                        value={followUpDate} placeholder="mm/dd/yyyy" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></Input>
+                                        <Input color="primary" variant="outlined" sx={{}} size="md"
+                                            value={followUpDate} placeholder="mm/dd/yyyy" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></Input>
                                     </Box>
                                     <Box sx={{ py: 2 }}>
                                         <Button variant="soft" color="primary" size="lg" sx={{ m: 2 }} type='submit'>Save</Button>
-                                        <Button variant="soft" color="danger" size="lg" type='nevermind'onClick={props.onClose}>Nevermind</Button>
+                                        <Button variant="soft" color="danger" size="lg" type='nevermind' onClick={props.onClose}>Nevermind</Button>
                                     </Box>
                                 </Box>
                             </form>

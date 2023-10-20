@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import { useState } from "react";
 
 import PeopleEditModal from "../PeopleEditModal/PeopleEditModal"
+import { Button } from "@mui/joy";
 
 function PeopleButtons(props) {
 
@@ -30,15 +31,17 @@ function PeopleButtons(props) {
 
     return (
         <>
-            <td><button onClick={() => setShowModal(true)}>
-                ✏️
-            </button></td>
+            <td align="center">
+                <Button variant="outlined" color="neutral"
+                    onClick={() => setShowModal(true)}>
+                    ✏️
+                </Button></td>
             {showModal && createPortal(
                 <PeopleEditModal onClose={() => setShowModal(false)}
                     person={person} />,
                 document.body
             )}
-            <td><button onClick={deletePerson}>❌</button></td>
+            <td align="center" ><Button variant="soft" color="danger" onClick={deletePerson}>❌</Button></td>
         </>
     )
 }
