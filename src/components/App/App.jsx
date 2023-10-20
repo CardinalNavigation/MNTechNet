@@ -20,7 +20,6 @@ import People from '../People/People';
 import Profile from '../Profile/Profile';
 import LoginForm from '../LoginForm/LoginForm';
 import RegistrationSuccess from '../RegistrationSuccess/RegistrationSuccess';
-import EventListEdit from '../EventListEdit/EventListEdit';
 import './App.css';
 import { Container } from '@mui/material';
 
@@ -71,14 +70,6 @@ function App() {
             path="/eventList"
           >
             <EventList />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            exact
-            path="/eventListEdit"
-          >
-            <EventListEdit />
-            
           </ProtectedRoute>
 
           <ProtectedRoute
