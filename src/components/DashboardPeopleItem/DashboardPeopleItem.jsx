@@ -1,7 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CheckIcon from "@mui/icons-material/Check";
-import { Button} from "@mui/joy";
+import { Button } from "@mui/joy";
+import { Typography } from "@mui/material";
 
 export default function DashboardEventItem({ person }) {
 
@@ -28,10 +29,10 @@ export default function DashboardEventItem({ person }) {
   return (
     <tr key={person.id}>
       <td align="center">
-        {person.name}
+        <Typography variant="body1"> {person.name}</Typography>
       </td>
       <td align="center">
-        {person.follow_up_date}
+        <Typography variant="body1"> {person.follow_up_date}</Typography>
       </td>
       <td align="center">
         <Button variant="solid" size="medium" onClick={peopleCompleteButtonClicked}>
