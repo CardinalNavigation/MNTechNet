@@ -20,7 +20,7 @@ router.get("/:id", (req, res) => {
     "event_complete"
     FROM events 
     WHERE "user_id" = $1
-    ORDER BY "date" DESC`;
+    ORDER BY "date" ASC`;
     // console.log("Get text", sqlText);
     pool
       .query(sqlText, [userId])

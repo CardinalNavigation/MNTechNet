@@ -62,9 +62,9 @@ function AddPeople() {
 
     const handleHover = () => {
         setName('Josh Kelmens');
-        setDate("12-01-23")
-        setCompany("New Product Ltd.")
-        setPhone('777-777-7777')
+        setDate("10-31-23")
+        setCompany("Deep Minn")
+        setPhone('763-566-0088')
         setNotes('He let me know he is fairly busy right now, and not hiring, but to touch base with him in a month and a half.')
         setFollowUpDate('2/28/24')
     };

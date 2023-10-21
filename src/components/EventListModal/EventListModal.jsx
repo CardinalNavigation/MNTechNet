@@ -43,11 +43,11 @@ export default function EventListModal(props) {
     }
 
     const handleHover = () => {
-        setEventName('Tech On Tap');
-        setDate("10/30/23")
-        setTime("4:00pm")
-        setAddress('123 Fake St. St. Paul MN, 55444')
-        setNotes('He let me know he is fairly busy right now, and not hiring, but to touch base with him in a month and a half.')
+        // setEventName('Tech On Tap');
+        // setDate("10/30/23")
+        // setTime("4:00pm")
+        // setAddress('123 Fake St. St. Paul MN, 55444')
+        setNotes('Entry is not free, remind Sam to bring money. Be sure to bring a lunch.')
     };
 
     return (

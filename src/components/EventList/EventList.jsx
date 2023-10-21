@@ -41,7 +41,7 @@ function EventList() {
                                     stripe="odd"
                                     variant="soft"
                                     hoverRow
-                                    noWrap>
+                                   >
                                     <thead>
                                         <tr>
                                             <th style={{ textAlign: 'center' }}>Event Name</th>

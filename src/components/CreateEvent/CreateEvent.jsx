@@ -61,11 +61,11 @@ function CreateEvent() {
         history.push('/dashboard')
     }
     const handleHover = () => {
-        setEventName('Tech On Tap');
+        setEventName('Twin Cities Software Symposium');
         setDate("10/30/23")
-        setTime("4:00pm")
-        setAddress('123 Fake St. St. Paul MN, 55444')
-        setNotes("I know at least 3 people that are going, let's plan on meeting 4 more")
+        setTime("7:30AM")
+        setAddress('Hilton Minneapolis Bloomington 3900 American Blvd W, Bloomington, MN')
+        setNotes("I know at least 3 people that are going. I want to check out the talk on Java fundamentals")
     };
 
 
