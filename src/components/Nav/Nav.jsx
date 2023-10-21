@@ -4,6 +4,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
 import { AppBar, Container, Paper, Typography } from '@mui/material';
+import { Button } from '@mui/joy';
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -27,9 +28,9 @@ function Nav() {
           {/* If a user is logged in, show these links */}
           {user.id && (
             <>
-              <Link className="navLink" to="/dashboard">
-                <Typography variant='h6'> Dashboard</Typography>
-              </Link>
+                <Link className="navLink" to="/dashboard">
+                  <Typography variant='h6'> Dashboard</Typography>
+                </Link>
               <Link className="navLink" to="/createEvent">
                 <Typography variant='h6'> Create Event</Typography>
               </Link>
