@@ -18,11 +18,6 @@ export default function EventListModal(props) {
     const user = useSelector((store) => store.user)
     let userId = user.id
 
-
-    // console.log("in Event Modal:", props.event.id)
-    // console.log("in Event Modal:", props.onClose)
-    // console.log("Event Name is:", eventName)
-
     const handleSubmit = () => {
         event.preventDefault();
 

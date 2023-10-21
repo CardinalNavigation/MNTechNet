@@ -1,5 +1,7 @@
 import React from 'react';
 import './Footer.css';
+import { Box } from '@mui/joy';
+import { Paper, Typography } from '@mui/material';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -8,9 +10,11 @@ import './Footer.css';
 
 function Footer() {
   return (
-    <footer>
-      &copy; Matthew Johnson
-    </footer>);
+    <Box display="flex" flexDirection="column" alignItems="center" sx={{ m: 3, p: 3 }}>
+      <Typography variant='h7'>&copy; Matthew Johnson</Typography>
+    </Box>
+
+  );
 }
 
 export default Footer;

@@ -1,9 +1,6 @@
 import React from "react";
-import { createPortal } from 'react-dom';
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
-
-import "./EventList.css";
+import { useEffect } from "react";
 import EventListButtons from "../EventListButtons/EventListButtons";
 import { Box, Paper, Typography } from "@mui/material";
 import { Sheet, Table } from "@mui/joy";
