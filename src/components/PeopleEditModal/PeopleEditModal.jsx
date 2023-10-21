@@ -74,7 +74,7 @@ export default function PeopleEditModal(props) {
                                 <form onSubmit={handleSubmit}>
                                     <Box display="flex"
                                         flexDirection="column"
-                                        alignItems="center" >
+                                        alignItems="stretch" >
                                         <Box display="flex"
                                             flexDirection="column">
                                             <Typography variant="h6" color="#80AEB6">Name:</Typography>

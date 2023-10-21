@@ -71,7 +71,7 @@ export default function EventListModal(props) {
                                 <form onSubmit={handleSubmit}>
                                     <Box display="flex"
                                         flexDirection="column"
-                                        alignItems="center"
+                                        alignItems="stretch"
                                     >
                                         <Box display="flex"
                                             flexDirection="column">
