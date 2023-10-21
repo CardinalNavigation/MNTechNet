@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
     "follow_up_complete"
     FROM people 
     WHERE "user_id" = $1
-    ORDER BY "date" ASC`;
+    ORDER BY "follow_up_date" ASC`;
     // console.log("Get text", sqlText);
     pool
       .query(sqlText, [userId])
