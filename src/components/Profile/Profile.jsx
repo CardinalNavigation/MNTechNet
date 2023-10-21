@@ -68,14 +68,14 @@ function Profile() {
                         alignItems="center">
                         <Box display="flex"
                             flexDirection="column">
-                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" 
-                             value={username} placeholder="Username" type="text" onChange={(event) => setUsername(event.target.value)}></Input>
-                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" 
-                            value={email} placeholder="E-mail Address" type="text" onChange={(event) => setEmail(event.target.value)}></Input>
-                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" 
-                            value={password} placeholder="Password" type="text" onChange={(event) => setPassword(event.target.value)}></Input>
-                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" 
-                            value={passwordConfirm} placeholder="Confirm Password" type="text" onChange={(event) => setPasswordConfirm(event.target.value)}></Input>
+                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
+                                value={username} placeholder="Username" type="text" onChange={(event) => setUsername(event.target.value)}></Input>
+                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
+                                value={email} placeholder="E-mail Address" type="text" onChange={(event) => setEmail(event.target.value)}></Input>
+                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
+                                value={password} placeholder="Password" type="text" onChange={(event) => setPassword(event.target.value)}></Input>
+                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
+                                value={passwordConfirm} placeholder="Confirm Password" type="text" onChange={(event) => setPasswordConfirm(event.target.value)}></Input>
                         </Box>
                         <Box>
                             <Button variant="soft" color="primary" size="lg" sx={{ mx: 2 }} type="submit">Submit</Button>
