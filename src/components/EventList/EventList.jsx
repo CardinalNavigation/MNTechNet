@@ -10,8 +10,7 @@ function EventList() {
     const eventReducer = useSelector((store) => store.eventReducer.eventReducer);
     const user = useSelector((store) => store.user)
     let userId = user.id
-    // console.log(user.id)
-    // console.log("Event Reducer Looks Like:", eventReducer)
+
     const dispatch = useDispatch();
 
     useEffect(() => {

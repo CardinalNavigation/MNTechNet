@@ -1,9 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { createPortal } from "react-dom";
 import { useState } from "react";
-
 import EventListModal from "../EventListModal/EventListModal"
 import { Button } from "@mui/joy";
 import EditNoteRoundedIcon from '@mui/icons-material/EditNoteRounded';
@@ -13,7 +11,6 @@ function EventListButtons(props) {
 
     const [showModal, setShowModal] = useState(false);
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const user = useSelector((store) => store.user)
     let userId = user.id

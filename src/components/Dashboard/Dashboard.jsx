@@ -1,7 +1,7 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Box, List, Typography, ListItem, Paper } from "@mui/material";
+import { Box, Typography, Paper } from "@mui/material";
 import DashboardEventItem from "../DashboardEventItem/DashboardEventItem";
 import DashboardPeopleItem from "../DashboardPeopleItem/DashboardPeopleItem";
 import { Sheet, Table } from "@mui/joy";
@@ -28,13 +28,9 @@ function Dashboard() {
     (store) => store.peopleReducer.peopleReducer
   );
 
-  //   console.log("eventReducer:", eventReducer);
-  //   console.log("peopleReducer:", peopleReducer);]
   const dispatch = useDispatch();
 
   const eventReducerToThree = (reducer) => {
-    //  console.log("This is the Event Array Passed In:", reducer);
-    // let closestThreeEvents = eventReducer.slice(0, 3);
     let output = [];
     // some bit of logic that says: only do this, if the data is there.
     // the if statement helps the page load when the reducer has not been filled by our GET dispatch yet.
@@ -52,8 +48,6 @@ function Dashboard() {
   closestThreeEvents = closestThreeEvents.slice(0, 3)
 
   const peopleReducerToThree = (reducer) => {
-    //  console.log("This is the People Array Passed In:", reducer);
-
     let output = [];
     // some bit of logic that says: only do this, if the data is there.
     // the if statement helps the page load when the reducer has not been filled by our GET dispatch yet.

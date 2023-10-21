@@ -66,11 +66,9 @@ function LoginForm() {
           <Box display="flex"
             flexDirection="column">
             <label htmlFor="username">
-              {/* Username: */}
               <Input color="primary" variant="outlined" size="lg" sx={{ my: 1 }} type="text" placeholder="Username" requiredvalue={username} onChange={(event) => setUsername(event.target.value)} />
             </label>
             <label htmlFor="password">
-              {/* Password: */}
               <Input color="primary" variant="outlined" size="lg" sx={{ my: 1 }} type="password" placeholder="Password" required value={password} onChange={(event) => setPassword(event.target.value)} />
             </label>
             <Button type="submit" name="submit" size="lg" sx={{ my: 1 }} value="Log In">

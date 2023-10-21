@@ -1,18 +1,10 @@
 import React from "react";
-import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  Box,
-  List,
-  ListItem,
-  ListItemButton,
-  Typography,
-} from "@mui/material";
+import {Typography} from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
-import { Button, ListItemContent } from "@mui/joy";
+import { Button} from "@mui/joy";
 
 export default function DashboardEventItem({ event }) {
-  // console.log("event is:", props)
 
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);

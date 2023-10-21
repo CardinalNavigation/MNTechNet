@@ -13,17 +13,9 @@ function Nav() {
     <Paper elevation='6' >
       <div className="nav">
         <Link to="/login">
-          {/* <h2 className="nav-title">MNTechNet</h2> */}
           <Typography variant='h2' fontWeight='bold' color="white">MNTechNet</Typography>
         </Link>
         <div>
-          {/* If no user is logged in, show these links */}
-          {/* {!user.id && (
-          // If there's no user, show login/registration links
-          <Link className="navLink" to="/login">
-            Login / Register
-          </Link>
-        )} */}
 
           {/* If a user is logged in, show these links */}
           {user.id && (

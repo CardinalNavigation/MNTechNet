@@ -23,9 +23,6 @@ import RegistrationSuccess from '../RegistrationSuccess/RegistrationSuccess';
 import './App.css';
 import { Container } from '@mui/material';
 
-
-
-
 function App() {
   const dispatch = useDispatch();
 
@@ -36,101 +33,101 @@ function App() {
   }, [dispatch]);
 
   return (
-    <Container sx={{height: '100v'}}>
-    <Router> 
-      <div>
-        <Nav />
-        <Switch>
-          {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/login" />
+    <Container sx={{ height: '100v' }}>
+      <Router>
+        <div>
+          <Nav />
+          <Switch>
+            {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
+            <Redirect exact from="/" to="/login" />
 
-          {/* For protected routes, the view could show one of several things on the same route.
+            {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the Dashboard if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginForm (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
 
 
-          {/*logged in shows Protected Routes else shows LoginForm */}
-          <ProtectedRoute
-            exact
-            path="/dashboard"
-          >
-            <Dashboard />
-          </ProtectedRoute>
+            {/*logged in shows Protected Routes else shows LoginForm */}
+            <ProtectedRoute
+              exact
+              path="/dashboard"
+            >
+              <Dashboard />
+            </ProtectedRoute>
 
-          <ProtectedRoute
-            exact
-            path="/createEvent"
-          >
-            <CreateEvent />
-          </ProtectedRoute>
+            <ProtectedRoute
+              exact
+              path="/createEvent"
+            >
+              <CreateEvent />
+            </ProtectedRoute>
 
-          <ProtectedRoute
-            exact
-            path="/eventList"
-          >
-            <EventList />
-          </ProtectedRoute>
+            <ProtectedRoute
+              exact
+              path="/eventList"
+            >
+              <EventList />
+            </ProtectedRoute>
 
-          <ProtectedRoute
-            exact
-            path="/addPeople"
-          >
-            <AddPeople />
-          </ProtectedRoute>
+            <ProtectedRoute
+              exact
+              path="/addPeople"
+            >
+              <AddPeople />
+            </ProtectedRoute>
 
-          <ProtectedRoute
-            exact
-            path="/people"
-          >
-            <People />
-          </ProtectedRoute>
+            <ProtectedRoute
+              exact
+              path="/people"
+            >
+              <People />
+            </ProtectedRoute>
 
-          <ProtectedRoute
-            exact
-            path="/profile"
-          >
-            <Profile />
-          </ProtectedRoute>
+            <ProtectedRoute
+              exact
+              path="/profile"
+            >
+              <Profile />
+            </ProtectedRoute>
 
-          <Route
-            exact
-            path="/login"
-          >
-            {user.id ?
-              // If the user is already logged in, 
-              // redirect to the /user page
-              <Redirect to="/dashboard" />
-              :
-              // Otherwise, show the login page
-              <LoginForm />
-            }
-          </Route>
+            <Route
+              exact
+              path="/login"
+            >
+              {user.id ?
+                // If the user is already logged in, 
+                // redirect to the /user page
+                <Redirect to="/dashboard" />
+                :
+                // Otherwise, show the login page
+                <LoginForm />
+              }
+            </Route>
 
-          <Route
-            exact
-            path="/registration"
-          >
-            <RegisterForm />
-          </Route>
+            <Route
+              exact
+              path="/registration"
+            >
+              <RegisterForm />
+            </Route>
 
-          <ProtectedRoute
-            exact
-            path="/registrationSuccess"
-          >
-            <RegistrationSuccess />
-          </ProtectedRoute>
+            <ProtectedRoute
+              exact
+              path="/registrationSuccess"
+            >
+              <RegistrationSuccess />
+            </ProtectedRoute>
 
 
-          {/* If none of the other routes matched, we will show a 404. */}
-          <Route>
-            <h1>404</h1>
-          </Route>
+            {/* If none of the other routes matched, we will show a 404. */}
+            <Route>
+              <h1>404</h1>
+            </Route>
 
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
     </Container>
   );
 }

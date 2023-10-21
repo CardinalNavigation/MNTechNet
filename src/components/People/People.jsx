@@ -10,7 +10,6 @@ function People() {
     const peopleReducer = useSelector((store) => store.peopleReducer.peopleReducer);
     const user = useSelector((store) => store.user)
     let userId = user.id
-    // console.log("People Reducer Looks Like:", peopleReducer)
     const dispatch = useDispatch();
 
 

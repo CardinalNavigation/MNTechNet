@@ -19,10 +19,6 @@ export default function PeopleEditModal(props) {
 
     const dispatch = useDispatch();
 
-    // console.log("in People Modal:", props)
-    // console.log("in People Modal:", props.onClose)
-    // console.log("People Name is:", name)
-
     const handleSubmit = () => {
         console.log("Test")
         event.preventDefault();

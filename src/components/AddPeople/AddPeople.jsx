@@ -6,8 +6,8 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Input from '@mui/joy/Input';
 import { Button, Textarea } from "@mui/joy";
 import AddReactionTwoToneIcon from '@mui/icons-material/AddReactionTwoTone';
-function AddPeople() {
 
+function AddPeople() {
 
     const user = useSelector((store) => store.user)
 
@@ -18,7 +18,8 @@ function AddPeople() {
     const [notes, setNotes] = useState('');
     const [followUpDate, setFollowUpDate] = useState('');
 
-    // Use Dispatch and History to send to the redux saga, which sends to server and ultimately our
+    // Use Dispatch and History to send to the redux saga, 
+    // which sends to server and ultimately our
     // SQL database
     const dispatch = useDispatch();
     const history = useHistory();
@@ -35,7 +36,6 @@ function AddPeople() {
             notes: notes,
             followUpDate: followUpDate,
             userId: user.id
-            // event_complete: false
         }
 
         console.log(peopleReducerInput)
@@ -102,7 +102,7 @@ function AddPeople() {
                                 value={phone} placeholder="Phone" type="text" onChange={(event) => setPhone(event.target.value)}></Input>
                             <Textarea color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
                                 required value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Textarea>
-                            <Input onMouseEnter={handleHover}color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
+                            <Input onMouseEnter={handleHover} color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
                                 required value={followUpDate} placeholder="Follow-up Date" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></Input>
                             <Box>
                                 <Button variant="soft" color="primary" size="lg" sx={{ mx: 2 }} type='submit'>Submit  <AddReactionTwoToneIcon></AddReactionTwoToneIcon></Button>
