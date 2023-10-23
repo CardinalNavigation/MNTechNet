@@ -40,7 +40,6 @@ function People() {
                                 stripe="odd"
                                 variant="soft"
                                 hoverRow
-                                noWrap
                             >
                                 <thead>
                                     <tr>
