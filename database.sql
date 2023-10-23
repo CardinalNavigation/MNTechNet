@@ -17,22 +17,18 @@ CREATE TABLE "events" (
     "time" VARCHAR(7) NOT NULL,
     "address" VARCHAR (200) NOT NULL,
     "notes" VARCHAR (400), 
-    "event_complete" BOOLEAN DEFAULT FALSE
+    "event_complete" BOOLEAN DEFAULT FALSE,
+    "user_id" INT REFERENCES "user" NOT NULL
 );
-
-INSERT INTO "events" ("event_name", "date", "time", "address", "notes")
-VALUES ('Tech On Tap', '10/13/23', '5:00PM', '1234 Fake St. Minneapolis MN 55411','it will be on the corner of 5th and 3rd, remember to connect with Erik');
 
 CREATE TABLE "people" (
     "id" SERIAL PRIMARY KEY,
     "name" VARCHAR (100) NOT NULL,
-    "date" DATE,
+    "date" DATE DEFAULT CURRENT_DATE,
     "company" VARCHAR (200),
     "phone" VARCHAR (15),
     "notes" VARCHAR (400), 
-    "follow_up_date" DATE NOT NULL,
-    "follow_up_compelte" BOOLEAN DEFAULT FALSE
+    "follow_up_date" DATE DEFAULT CURRENT_DATE,
+    "follow_up_complete" BOOLEAN DEFAULT FALSE,
+    "user_id" INT REFERENCES "user" NOT NULL
  );
-
-INSERT INTO "people" ("name", "date", "phone", "notes", "follow_up_date")
-VALUES ('Popeye Sailorman', '10/13/23', '123-456-7899', 'he really smelt like spinach','10/14/23');
