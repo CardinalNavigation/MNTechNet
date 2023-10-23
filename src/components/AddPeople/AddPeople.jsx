@@ -56,18 +56,9 @@ function AddPeople() {
     }
 
     const nevermindButton = () => {
-        console.log("User Said Nevermind")
+        // console.log("User Said Nevermind")
         history.push('/dashboard')
     }
-
-    const handleHover = () => {
-        setName('Josh Kelmens');
-        setDate("10-31-23")
-        setCompany("Deep Minn")
-        setPhone('763-566-0088')
-        setNotes('He let me know he is fairly busy right now, and not hiring, but to touch base with him in a month and a half.')
-        setFollowUpDate('2/28/24')
-    };
 
     return (
         <Paper elevation='6'>
@@ -102,7 +93,7 @@ function AddPeople() {
                                 value={phone} placeholder="Phone" type="text" onChange={(event) => setPhone(event.target.value)}></Input>
                             <Textarea color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
                                 required value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Textarea>
-                            <Input onMouseEnter={handleHover} color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
+                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
                                 required value={followUpDate} placeholder="Follow-up Date" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></Input>
                             <Box>
                                 <Button variant="soft" color="primary" size="lg" sx={{ mx: 2 }} type='submit'>Submit  <AddReactionTwoToneIcon></AddReactionTwoToneIcon></Button>

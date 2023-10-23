@@ -11,10 +11,10 @@ function Profile() {
 
     const user = useSelector((store) => store.user)
     let userID = user.id
-    const [username, setUsername] = useState('');
+    const [username, setUsername] = useState(user.username);
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState(user.e_mail);
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -69,8 +69,8 @@ function Profile() {
                         <Box display="flex"
                             flexDirection="column">
                             <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
-                                value={username} placeholder="Username" type="text" onChange={(event) => setUsername(event.target.value)}></Input>
-                            <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
+                                value={username} disabled placeholder="Username" type="text" onChange={(event) => setUsername(event.target.value)}></Input>
+                            <Input color="primary" disabled variant="outlined" sx={{ my: 1 }} size="lg"
                                 value={email} placeholder="E-mail Address" type="text" onChange={(event) => setEmail(event.target.value)}></Input>
                             <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg"
                                 value={password} placeholder="Password" type="text" onChange={(event) => setPassword(event.target.value)}></Input>

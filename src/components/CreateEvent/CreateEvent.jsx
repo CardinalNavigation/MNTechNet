@@ -95,7 +95,7 @@ function CreateEvent() {
                                 <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={date} placeholder="Date" type="text" onChange={(event) => setDate(event.target.value)}></Input>
                                 <Input color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={time} placeholder="Time" type="text" onChange={(event) => setTime(event.target.value)}></Input>
                                 <Textarea color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={address} placeholder="Address" type="text" onChange={(event) => setAddress(event.target.value)}></Textarea>
-                                <Textarea onMouseEnter={handleHover} color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Textarea>
+                                <Textarea color="primary" variant="outlined" sx={{ my: 1 }} size="lg" value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Textarea>
                             </Box>
                             <Box>
                                 <Button variant="soft" color="primary" size="lg" sx={{ mx: .5 }} type='submit'>Submit<EventAvailableTwoToneIcon></EventAvailableTwoToneIcon></Button>

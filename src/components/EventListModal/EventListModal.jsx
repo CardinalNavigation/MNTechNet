@@ -36,19 +36,9 @@ export default function EventListModal(props) {
         dispatch({
             type: 'UPDATE_EVENT_DATA',
             payload: eventUpdateData
-        });
-
-
+        })
         props.onClose()
     }
-
-    const handleHover = () => {
-        // setEventName('Tech On Tap');
-        // setDate("10/30/23")
-        // setTime("4:00pm")
-        // setAddress('123 Fake St. St. Paul MN, 55444')
-        setNotes('Entry is not free, remind Sam to bring money. Be sure to bring a lunch.')
-    };
 
     return (
         <>
@@ -83,7 +73,7 @@ export default function EventListModal(props) {
                                             <Textarea color="primary" variant="outlined" size="md" sx={{ m: .5 }}
                                                 value={address} placeholder="Address" type="text" onChange={(event) => setAddress(event.target.value)}></Textarea>
                                             <Typography variant="h6" color="#80AEB6">Notes:</Typography>
-                                            <Textarea onMouseEnter={handleHover} color="primary" variant="outlined" size="md" sx={{ m: .5 }}
+                                            <Textarea color="primary" variant="outlined" size="md" sx={{ m: .5 }}
                                                 value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Textarea>
                                         </Box>
                                         <Box sx={{ py: 2 }}>

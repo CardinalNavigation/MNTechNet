@@ -44,15 +44,6 @@ export default function PeopleEditModal(props) {
     }
 
 
-    const handleHover = () => {
-        // setName('Josh Kelmens');
-        // setDate("12/01/23")
-        // setCompany("New Product Ltd.")
-        // setPhone('777-777-7777')
-        setNotes('Send him a Message on LinkedIn early. He let me know he is fairly busy right now, and not hiring, but to touch base with him in a month and a half')
-        setFollowUpDate('1/15/24')
-    };
-
     return (
         <>
 
@@ -89,7 +80,7 @@ export default function PeopleEditModal(props) {
                                             <Textarea color="primary" variant="outlined"
                                                 value={notes} placeholder="Notes" type="text" onChange={(event) => setNotes(event.target.value)}></Textarea>
                                             <Typography variant="h6" color="#80AEB6">Follow-Up Date:</Typography>
-                                            <Input onMouseEnter={handleHover} color="primary" variant="outlined"
+                                            <Input color="primary" variant="outlined"
                                                 value={followUpDate} placeholder="mm/dd/yyyy" type="text" onChange={(event) => setFollowUpDate(event.target.value)}></Input>
                                         </Box>
                                         <Box sx={{ py: 2 }}>
